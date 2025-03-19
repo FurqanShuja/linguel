@@ -1,0 +1,66 @@
+# Byte-compiled / cached files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+*.venv/
+*.env/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.spec
+
+# Logs and debugging files
+logs/
+*.log
+
+# Environment variables
+.env
+*.ini
+*.cfg
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# macOS and Windows system files
+.DS_Store
+Thumbs.db
+
+# VS Code settings
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+
+# Coverage reports
+htmlcov/
+.coverage
+*.cover
+
+# MyPy
+.mypy_cache/
+
+# Pip dependencies
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Docker files
+docker-compose.override.yml
+
+# SQLite database
+*.sqlite3
+*.db
+
+# Compiled Cython files
+*.so
+
+# Temporary files
+*.tmp
+*.temp
