@@ -1,0 +1,58 @@
+{
+    "ankit2@gmail.com": [
+        {
+            "type": "Vocabulary",
+            "title": "Das Haus",
+            "description": "Replacing 'house' with its German equivalent.",
+            "question": "I live in a house.",
+            "answer": "I live in a Haus.",
+            "available_timedate": "2025-03-20 10:00:00",
+            "visit_count": 3
+        },
+        {
+            "type": "Vocabulary",
+            "title": "Der Hund",
+            "description": "Replacing 'dog' with its German equivalent.",
+            "question": "The dog is barking.",
+            "answer": "Der Hund is barking.",
+            "available_timedate": "2025-03-21 09:30:00",
+            "visit_count": 2
+        },
+        {
+            "type": "Vocabulary",
+            "title": "Das Auto",
+            "description": "Replacing 'car' with its German equivalent.",
+            "question": "I bought a new car.",
+            "answer": "I bought a new Auto.",
+            "available_timedate": "2025-03-22 14:00:00",
+            "visit_count": 4
+        },
+        {
+            "type": "Grammar",
+            "title": "Present Perfect (habe)",
+            "description": "Replacing 'have' with 'habe' in present perfect tense.",
+            "question": "I have eaten lunch.",
+            "answer": "I habe eaten lunch.",
+            "available_timedate": "2025-03-23 11:00:00",
+            "visit_count": 5
+        },
+        {
+            "type": "Grammar",
+            "title": "Verb Inflection (rennt)",
+            "description": "Replacing 'runs' with its German equivalent.",
+            "question": "He runs fast.",
+            "answer": "He rennt fast.",
+            "available_timedate": "2025-03-24 16:30:00",
+            "visit_count": 3
+        },
+        {
+            "type": "Grammar",
+            "title": "Article Change (Der)",
+            "description": "Replacing 'the' with the correct German article.",
+            "question": "The apple is red.",
+            "answer": "Der apple is red.",
+            "available_timedate": "2025-03-25 08:45:00",
+            "visit_count": 6
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "ankit@gmail.com": [
+        {"message": "HI HI HI", "source": "user"},
+        {"message": "HEY HEY HEY", "source": "ai"}
+    ],
+    "john@example.com": [
+        {"message": "Hello there!", "source": "user"},
+        {"message": "Hi! How can I help?", "source": "ai"}
+    ],
+    "emma@domain.com": [
+        {"message": "Good morning!", "source": "user"},
+        {"message": "Morning! How’s your day?", "source": "ai"}
+    ]
+}
+
