@@ -5,11 +5,5 @@
 		},
 
 		"parameters": ["userMessage", "retrievedChunks"]
-	},
-	"SUMMARIZE_INSTRUCTION": {
-		"prompt": {
-			"en": "Your task is to act as an **intermediate summarizer** for financial product data before passing it to the final LLM for an informed decision. The original data is **detailed but includes irrelevant sections**.\n\n**Your goal:** Extract the most **important financial details**, **figures**, **terms**, and **product-specific information** while preserving the **context** and **full precision** of critical data.\n\n### **User Message:**\n[[userMessage]]\n\n### **Summarization Guidelines:**\n1. **Retain ALL numerical details, percentages, fees, timelines, and conditions.**\n2. **Preserve structured elements like bullet points, tables, and lists.**\n3. **If summarization reduces clarity, prefer keeping full details.**\n4. **DO NOT remove important financial clauses, product descriptions, or user-relevant sections.**\n5. **If specific examples are provided in the original text, include them unless completely irrelevant.**\n\n### **Output Format:**\n[[context]]:\n- **Key financial details** (percentages, amounts, fees, guarantees, payout options).\n- **Product-specific details** (eligibility, terms, investment risk, flexibility, inheritance options).\n- **Important conditions or restrictions** (withdrawal limits, cancellation terms, penalties, etc.).\n- **User-relevant insights** extracted from the document.\n\nIf the original data is **completely irrelevant**, just reply with `None`.\n\n### **Original Data to Summarize:**\n[[informationMessage]]\n\n🔹 **Final Instruction:** Do NOT shorten excessively. Keep all **relevant** structured financial data **fully intact** while removing only **truly irrelevant** information."
-		},
-		"parameters": ["context", "userMessage", "informationMessage"]
 	}
 }
