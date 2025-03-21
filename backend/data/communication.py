@@ -110,6 +110,59 @@ def update_chat_history(email, messages):
     with open(file_path, "w", encoding="utf-8") as f:
         json.dump(chat_history, f, indent=4)
 
+def get_learned_data(email):
+    """
+    Retrieves all learned data for the specified email from data/user_data.json.
+    
+    Args:
+        email (str): The email address for which to retrieve learned data.
+    
+    Returns:
+        list: A list of dictionaries representing the learned data for the email.
+              If the file doesn't exist or the email isn't found, returns an empty list.
+    """
+    file_path = os.path.join("data", "user_data.json")
+    
+    if not os.path.exists(file_path):
+        return []
+    
+    with open(file_path, "r", encoding="utf-8") as f:
+        user_data = json.load(f)
+    
+    return user_data.get(email, [])
+
+
+def add_learned_data(email, data_to_add):
+    """
+    Appends new learned data for the specified email in data/user_data.json.
+    
+    Args:
+        email (str): The email address for which to add learned data.
+        data_to_add (list): A list of dictionaries (each containing learned data fields
+                            like "type", "title", "description", "question", "answer",
+                            "available_timedate", and "visit_count").
+    """
+    file_path = os.path.join("data", "user_data.json")
+    
+    # Load existing user data or initialize if the file doesn't exist
+    if os.path.exists(file_path):
+        with open(file_path, "r", encoding="utf-8") as f:
+            user_data = json.load(f)
+    else:
+        user_data = {}
+    
+    # If the email does not exist in user_data, initialize it with an empty list
+    if email not in user_data:
+        user_data[email] = []
+    
+    # Extend the user's data with the new entries
+    user_data[email].extend(data_to_add)
+    
+    # Write the updated data back to the JSON file
+    with open(file_path, "w", encoding="utf-8") as f:
+        json.dump(user_data, f, indent=4)
+
+
 if __name__ == "__main__":
     # Example usage for get_prompt:
     prompt_replacements = {
@@ -148,3 +201,28 @@ if __name__ == "__main__":
     updated_history = get_chat_history(chat_email)
     print(f"\nUpdated chat history for {chat_email}:")
     print(updated_history)
+
+    # Get all learned data for a user
+    email_to_retrieve = "ankit2@gmail.com"
+    learned_data = get_learned_data(email_to_retrieve)
+    print(f"Learned data for {email_to_retrieve}:")
+    print(learned_data)
+    
+    # Add new learned data for a user
+    new_data = [
+        {
+            "type": "Vocabulary",
+            "title": "Das Buch",
+            "description": "Replacing 'book' with its German equivalent.",
+            "question": "He reads a book.",
+            "answer": "He reads a Buch.",
+            "available_timedate": "2025-03-26 10:00:00",
+            "visit_count": 1
+        }
+    ]
+    add_learned_data(email_to_retrieve, new_data)
+    
+    # Verify that the new data has been appended
+    updated_learned_data = get_learned_data(email_to_retrieve)
+    print(f"\nUpdated learned data for {email_to_retrieve}:")
+    print(updated_learned_data)
