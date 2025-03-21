@@ -7,6 +7,8 @@ app = FastAPI()
 1. send the scenario
 2. middle login: fetch prompt for scenario for normal chat and chat response - lookup existing vocab/grammar list and replace if found - generate response
 3. output str
+
+It will also save chat history
 '''
 
 # Endpoint 2: Trigger Replacement
