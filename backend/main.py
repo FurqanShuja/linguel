@@ -1,50 +1,81 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Body
+from typing import List, Dict, Any
+from schemas import (
+    LearningChatRequest,
+    TriggerReplacementRequest,
+    ReplacementCardRequest,
+    UpdateCardRequest
+)
+
+# Import your business logic functions
+from data import get_chat_history, add_learned_data, get_authentication
+from features import get_response, learning_chat, new_card, update_card, trigger_replacement, create_card_for_replacement
 
 app = FastAPI()
 
-# Endpoint 1: Learning Chat
-'''
-1. send the scenario
-2. middle login: fetch prompt for scenario for normal chat and chat response - lookup existing vocab/grammar list and replace if found - generate response
-3. output str
+@app.get("/authenticate")
+def endpoint_authenticate(email: str):
+    """
+    Endpoint for retrieving authentication details for a given email.
+    Returns the password for the provided email.
+    """
+    try:
+        password = get_authentication(email)
+        return {"email": email, "password": password}
+    except ValueError as e:
+        return {"error": str(e)}
 
-It will also save chat history
-'''
+@app.post("/learning_chat")
+def endpoint_learning_chat(request: LearningChatRequest):
+    """
+    Endpoint for performing the learning_chat sequence.
+    Calls the 'learning_chat' function directly.
+    """
+    result = learning_chat(user_input=request.user_input, email=request.email, situation=request.situation)
+    return {"result": result}
 
-# Endpoint 2: Trigger Replacement
-'''
-1. send the user message
-2. middle login: get the most similar german replacement vocab/grammar
-3. output str
-'''
+@app.post("/trigger_replacement")
+def endpoint_trigger_replacement(request: TriggerReplacementRequest):
+    """
+    Endpoint for triggering a replacement operation on the user input.
+    Calls the 'trigger_replacement' function directly.
+    """
+    output = trigger_replacement(user_input=request.user_input, email=request.email)
+    return {"result": output}
 
-# Endpoint 2: Save Replacement
-'''
-1. send the replacement text
-2. middle login: generate its values and save in json format in json
-3. output str
-'''
+@app.post("/save_replacement")
+def endpoint_add_learned_data(request: ReplacementCardRequest):
+    """
+    Endpoint for adding a new learned data card.
+    Accepts a replacement string (from the trigger replacement) and the email,
+    creates a card using the LLM, and saves it with add_learned_data.
+    """
+    card_result = create_card_for_replacement(request.replacement, request.email)
+    return {"status": "success", "message": card_result}
 
-# Endpoint 3: Check Practice Chat
-'''
-1. send the username/email address/user uuid
-2. middle login: check if minimum vocabulary/grammer 100:100 ratio is acheived
-3. output bool: true or false
-'''
+@app.get("/show_card")
+def endpoint_show_card(email: str):
+    """
+    Endpoint to retrieve the first available card for the user.
+    """
+    card = new_card(email)
+    return {"card": card}
 
-# Endpoint 4: Practice Chat
-'''
-1. send the user input
-2. middle login: create output using only available list of vocabulary and grammer from a single call for now
-3. output str
-'''
+@app.post("/update_card")
+def endpoint_update_card(request: UpdateCardRequest):
+    """
+    Endpoint to update a learned-data card.
+    """
+    result = update_card(request.email, request.title, request.option_selected)
+    return {"result": result}
 
-# Endpoint 5: show card
-'''
-1. send a request with bool (fresh_start: true means the user opened first time) and previous_action: AGAIN/HARD/GOOD/EASY and previous_id: 'itemid'
-2. middle login: if fresh start is to be shown, randomly show the one which is within time bound. if fresh_start is false, check the previous id and action and update the next available time (again:1 hard:10 good:100 easy:1000 x count *in minutes*) and count++ and then show the item randomly which is available
-3. output a json of the new item (type, english word, german word, example OR english phrase, german phrase, example)
-'''
+@app.get("/chat_history")
+def endpoint_get_chat_history(email: str):
+    """
+    Endpoint for retrieving the user's chat history.
+    """
+    history = get_chat_history(email)
+    return {"history": history}
 
 if __name__ == "__main__":
     import uvicorn

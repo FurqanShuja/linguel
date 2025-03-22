@@ -1,15 +1,92 @@
 {
     "ankit@gmail.com": [
-        {"message": "HI HI HI", "source": "user"},
-        {"message": "HEY HEY HEY", "source": "ai"}
+        {
+            "message": "Ja, wir haben milk. Welche Art von milk möchten Sie denn?\n",
+            "source": "ai"
+        },
+        {
+            "message": "Hey whats up\n",
+            "source": "user"
+        },
+        {
+            "message": "Not much, just working! What can I get for you today?\n",
+            "source": "ai"
+        },
+        {
+            "message": "Kann ich get some coffee",
+            "source": "user"
+        },
+        {
+            "message": "Sure, what kind of coffee would you like?\n",
+            "source": "ai"
+        },
+        {
+            "message": "Hey I want a Kaffee",
+            "source": "user"
+        },
+        {
+            "message": "Okay, sure! Would you like that hot or iced, and do you have a preference for milk?\n",
+            "source": "ai"
+        },
+        {
+            "message": "Can you say coffee for me",
+            "source": "user"
+        },
+        {
+            "message": "Certainly! One Kaffee coming right up! Anything else I can get for you?\n",
+            "source": "ai"
+        },
+        {
+            "message": "hello I möchte spiele with you",
+            "source": "user"
+        },
+        {
+            "message": "Hello! I'm afraid I don't understand. Perhaps you'd like to order something?\n",
+            "source": "ai"
+        },
+        {
+            "message": "I möchte go",
+            "source": "user"
+        },
+        {
+            "message": "Okay, what möchte you like to order today?\n",
+            "source": "ai"
+        },
+        {
+            "message": "Hey bruder how are you?",
+            "source": "user"
+        },
+        {
+            "message": "I'm good, thanks! What can I get for you today?\n",
+            "source": "ai"
+        },
+        {
+            "message": "Can you call me brother please",
+            "source": "user"
+        },
+        {
+            "message": "Sure thing, Bruder. What kann I get for you today?\n",
+            "source": "ai"
+        }
     ],
     "john@example.com": [
-        {"message": "Hello there!", "source": "user"},
-        {"message": "Hi! How can I help?", "source": "ai"}
+        {
+            "message": "Hello there!",
+            "source": "user"
+        },
+        {
+            "message": "Hi! How can I help?",
+            "source": "ai"
+        }
     ],
     "emma@domain.com": [
-        {"message": "Good morning!", "source": "user"},
-        {"message": "Morning! How’s your day?", "source": "ai"}
+        {
+            "message": "Good morning!",
+            "source": "user"
+        },
+        {
+            "message": "Morning! How’s your day?",
+            "source": "ai"
+        }
     ]
 }
-

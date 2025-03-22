@@ -72,7 +72,7 @@ def get_response(user_input):
             
             # Create the model and chat session using the current key
             model = genai.GenerativeModel(
-                model_name="gemini-1.5-flash-8b",
+                model_name="gemini-2.0-flash",
                 generation_config=generation_config,
             )
             chat_session = model.start_chat(history=[])

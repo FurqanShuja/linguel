@@ -29,7 +29,7 @@ def learning_chat(user_input: str, email: str, situation: str) -> str:
     # B) (Optional) Retrieve the user's existing chat history (example usage).
     # --------------------------------------------------------------------------------
     chat_history = get_chat_history(email)
-    print(f"Current chat history for {email}: {chat_history}")
+    # print(f"Current chat history for {email}: {chat_history}")
 
     # --------------------------------------------------------------------------------
     # C) Retrieve the user's learned data and separate titles by type.
@@ -58,7 +58,7 @@ def learning_chat(user_input: str, email: str, situation: str) -> str:
 
     # Generate the first response using the large language model
     first_response = get_response(prompt_generate)
-    print(f"First model response:\n{first_response}\n")
+    # print(f"First model response:\n{first_response}\n")
 
     # --------------------------------------------------------------------------------
     # E) Prompt 2: 'REPLACE_RESPONSE'
@@ -77,7 +77,7 @@ def learning_chat(user_input: str, email: str, situation: str) -> str:
         return f"Error retrieving prompt: {e}"
 
     final_response = get_response(prompt_replace)
-    print(f"Final model response:\n{final_response}\n")
+    # print(f"Final model response:\n{final_response}\n")
 
     # --------------------------------------------------------------------------------
     # F) (Optional) Update chat history with the new conversation data.
@@ -85,7 +85,6 @@ def learning_chat(user_input: str, email: str, situation: str) -> str:
     # We could, for example, append these messages to the existing history.
     new_messages = chat_history + [
         {"message": user_input, "source": "user"},
-        {"message": first_response, "source": "ai"},
         {"message": final_response, "source": "ai"}
     ]
     update_chat_history(email, new_messages)

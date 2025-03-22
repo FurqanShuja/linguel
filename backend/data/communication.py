@@ -108,7 +108,7 @@ def update_chat_history(email, messages):
     chat_history[email] = messages
     
     with open(file_path, "w", encoding="utf-8") as f:
-        json.dump(chat_history, f, indent=4)
+        json.dump(chat_history, f, indent=4, ensure_ascii=False)
 
 def get_learned_data(email):
     """
@@ -160,7 +160,7 @@ def add_learned_data(email, data_to_add):
     
     # Write the updated data back to the JSON file
     with open(file_path, "w", encoding="utf-8") as f:
-        json.dump(user_data, f, indent=4)
+        json.dump(user_data, f, indent=4, ensure_ascii=False)
 
 def update_learned_data(email, title, available_timedate, visit_count):
     """
@@ -205,7 +205,7 @@ def update_learned_data(email, title, available_timedate, visit_count):
 
     # Write updated data back to JSON
     with open(file_path, "w", encoding="utf-8") as f:
-        json.dump(user_data, f, indent=4)
+        json.dump(user_data, f, indent=4, ensure_ascii=False)
 
     return "SUCCESS"
 
