@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+/* Fix for body/html to prevent scrolling */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevents scrolling */
+  height: 100%;
+  width: 100%;
+}
+
+.login-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  /* Replace the gradient with the background image */
+  background-image: url('../assets/images/background_image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Add a darkening overlay if needed */
+.login-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(15, 23, 42, 0.7); /* Dark blue overlay with 70% opacity */
+  z-index: 0;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 85%;
+  max-width: 280px;
+  padding: 1.5rem 1.5rem;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.login-form h1 {
+  color: white;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.6rem; /* Slightly smaller font */
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+  font-family: 'Inter', sans-serif;
+}
+
+.input-group {
+  position: relative;
+  width: 100%;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.input-group input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Style for when input is focused */
+.input-group input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.6); /* Brighter border */
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2); /* Subtle glow */
+  background: transparent; /* Keep background transparent */
+}
+
+/* Style for when input has value */
+.input-group input:not(:placeholder-shown) {
+  border-color: rgba(255, 255, 255, 0.4); /* Brighter border when text is entered */
+  background: transparent; /* Keep background transparent */
+}
+
+/* Style for hover state */
+.input-group input:hover:not(:focus) {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+button {
+  width: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+  border: none;
+  padding: 10px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.25);
+  letter-spacing: 0.2px;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.4);
+  background: linear-gradient(90deg, #4f8cf7 0%, #2e6ff1 100%);
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.3);
+}
+
+/* Add company logo or app branding if you have one */
+.brand {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.brand img {
+  height: 40px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .login-form {
+    padding: 1.75rem 1.5rem;
+    max-width: 300px;
+    width: 90%;
+  }
+  
+  .input-group input {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+  
+  button {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
+
+/* Update these notification styles */
+
+.notification {
+  position: fixed; 
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 16px;
+  border-radius: 6px;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  text-align: center;
+  transition: bottom 0.3s ease-in-out;
+  z-index: 9999;
+  min-width: 180px;
+  opacity: 0;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: transparent;
+  backdrop-filter: blur(4px);
+}
+
+.notification.show {
+  bottom: 25px;
+  opacity: 1;
+}
+
+.notification.success {
+  color: #10b981; /* Green text */
+  border-color: rgba(16, 185, 129, 0.6); /* Green border */
+  background-color: transparent;
+}
+
+.notification.error {
+  color: #ef4444; /* Red text */
+  border-color: rgba(239, 68, 68, 0.6); /* Red border */
+  background-color: transparent;
+}
+
+/* Fix any positioning issues */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.notification.show {
+  animation: fadeInUp 0.3s forwards;
+  bottom: 25px;
+} 

@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Body
+from fastapi.middleware.cors import CORSMiddleware
 from typing import List, Dict, Any
 from schemas import (
     LearningChatRequest,
@@ -12,6 +13,15 @@ from data import get_chat_history, add_learned_data, get_authentication
 from features import get_response, learning_chat, new_card, update_card, trigger_replacement, create_card_for_replacement
 
 app = FastAPI()
+
+# Add CORS middleware to allow requests from frontend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],  # Your Vite dev server address
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/authenticate")
 def endpoint_authenticate(email: str):
