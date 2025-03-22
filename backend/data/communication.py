@@ -162,6 +162,53 @@ def add_learned_data(email, data_to_add):
     with open(file_path, "w", encoding="utf-8") as f:
         json.dump(user_data, f, indent=4)
 
+def update_learned_data(email, title, available_timedate, visit_count):
+    """
+    Updates an existing learned data entry for a specified email and title,
+    changing its available_timedate and visit_count values.
+
+    Args:
+        email (str): The email address for which to update learned data.
+        title (str): The title identifying which item to update.
+        available_timedate (str): The new available date/time string.
+        visit_count (int): The new visit count value.
+
+    Returns:
+        str: "Update Successful" if the item was found and updated,
+             otherwise "Update Failed: Item not found."
+    """
+    file_path = os.path.join("data", "user_data.json")
+    
+    # Load existing user data or initialize if the file doesn't exist
+    if os.path.exists(file_path):
+        with open(file_path, "r", encoding="utf-8") as f:
+            user_data = json.load(f)
+    else:
+        return "Update Failed: No user_data.json file found."
+
+    # Check if this email exists in user_data
+    if email not in user_data:
+        return "Update Failed: Email not found."
+
+    # Find the item with the matching title
+    updated = False
+    for item in user_data[email]:
+        if item.get("title") == title:
+            # Update the needed fields
+            item["available_timedate"] = available_timedate
+            item["visit_count"] = visit_count
+            updated = True
+            break
+
+    if not updated:
+        return "FAIL"
+
+    # Write updated data back to JSON
+    with open(file_path, "w", encoding="utf-8") as f:
+        json.dump(user_data, f, indent=4)
+
+    return "SUCCESS"
+
 
 if __name__ == "__main__":
     # Example usage for get_prompt:
