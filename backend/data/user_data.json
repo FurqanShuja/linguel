@@ -2,56 +2,56 @@
     "ankit@gmail.com": [
         {
             "type": "Vocabulary",
-            "title": "Das Haus",
-            "description": "Replacing 'house' with its German equivalent.",
-            "question": "I live in a house.",
-            "answer": "I live in a Haus.",
-            "available_timedate": "2025-03-22 20:24:46",
-            "visit_count": 5
+            "title": "Bruder",
+            "description": "Replaces the English word 'brother' with the German word 'Bruder'.",
+            "question": "My brother is a doctor.",
+            "answer": "Mein Bruder ist Arzt.",
+            "available_timedate": "2025-03-23 20:11:10",
+            "visit_count": 1
         },
         {
-            "type": "Grammar",
-            "title": "Modal Verb Conjugation (Kann)",
-            "description": "Replaces the English modal verb 'Can I' with the German equivalent 'Kann ich'.",
-            "question": "Can I help you?",
-            "answer": "Kann ich Ihnen helfen?",
-            "available_timedate": "2025-03-23 12:56:59",
+            "type": "Vocabulary",
+            "title": "was ist los",
+            "description": "Replacing 'whats up' with 'was ist los'.",
+            "question": "Hey, whats up?",
+            "answer": "Hey, was ist los?",
+            "available_timedate": "2025-03-23 03:32:18",
             "visit_count": 1
         },
         {
             "type": "Vocabulary",
             "title": "Kaffee",
             "description": "Replaces the English word 'coffee' with the German word 'Kaffee'.",
-            "question": "I like to drink coffee in the morning.",
-            "answer": "I like to drink Kaffee in the morning.",
-            "available_timedate": "2025-03-23 12:58:29",
-            "visit_count": 1
-        },
-        {
-            "type": "Grammar",
-            "title": "Grammar (möchte)",
-            "description": "Replaces the English phrase 'want to' with the German word 'möchte'.",
-            "question": "I want to eat.",
-            "answer": "Ich möchte essen.",
-            "available_timedate": "2025-03-22 21:59:46",
-            "visit_count": 1
-        },
-        {
-            "type": "Grammar",
-            "title": "Modal Verb (möchte)",
-            "description": "Replaces 'like to' with the German modal verb 'möchte'.",
-            "question": "I would like to go to the cinema.",
-            "answer": "Ich möchte ins Kino gehen.",
-            "available_timedate": "2025-03-22 21:59:47",
+            "question": "I need a cup of coffee to wake up.",
+            "answer": "Ich brauche eine Tasse Kaffee, um aufzuwachen.",
+            "available_timedate": "2025-03-23 20:11:21",
             "visit_count": 1
         },
         {
             "type": "Vocabulary",
-            "title": "Bruder",
-            "description": "Replacing 'brother' with its German equivalent 'Bruder'.",
-            "question": "My brother is a doctor.",
-            "answer": "Mein Bruder ist ein Arzt.",
-            "available_timedate": "2025-03-22 20:06:46",
+            "title": "Milch",
+            "description": "Replace 'milk' with 'Milch' in German sentences.",
+            "question": "I would like some milk please.",
+            "answer": "Ich möchte bitte etwas Milch.",
+            "available_timedate": "2025-03-23 03:32:50",
+            "visit_count": 1
+        },
+        {
+            "type": "Vocabulary",
+            "title": "Ich",
+            "description": "Replacing the English pronoun 'I' with the German pronoun 'Ich'.",
+            "question": "I am going to the store.",
+            "answer": "Ich gehe zum Laden.",
+            "available_timedate": "2025-03-23 03:29:34",
+            "visit_count": 0
+        },
+        {
+            "type": "Vocabulary",
+            "title": "Hilfe",
+            "description": "Replacing 'help' with 'Hilfe' in German.",
+            "question": "I need your help.",
+            "answer": "Ich brauche deine Hilfe.",
+            "available_timedate": "2025-03-23 03:32:43",
             "visit_count": 0
         }
     ]

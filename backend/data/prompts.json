@@ -7,7 +7,7 @@
 	},
 	"REPLACE_RESPONSE": {
     "prompt": {
-        "en": "You are given an original response: [[previousResponse]].\n\nYou also have two lists:\n\n- Learned vocabulary: [[vocabularyString]]\n- Learned grammar points: [[grammarString]]\n\nCheck carefully if the original response contains any English vocabulary or grammar items that exactly match an item from these lists. If it does, replace each matching English item with the corresponding learned item from the provided lists. Only perform exact matches.\n\nIf no exact matches exist, simply output the original response unchanged.\n\nExample:\n\n- Original: \"Do you live in a house?\"\n- Learned vocabulary includes \"Haus\"\n- Replaced: \"Do you live in a Haus?\"\n\nProvide only the final sentence after replacements."
+        "en": "You are given an original response: [[previousResponse]].\n\nYou also have two lists:\n\n- Learned vocabulary: [[vocabularyString]]\n- Learned grammar points: [[grammarString]]\n\nCheck carefully if the original response contains any English vocabulary or grammar items that exactly match an item from these lists. If it does, replace each matching English item with the corresponding learned item from the provided lists. Only perform exact matches. You MUST only make a replacement which exist in Learned Vocabulary or Learned Grammar.\n\nIf no exact matches exist, simply output the original response unchanged.\n\nExample:\n\n- Original: \"Do you live in a house?\"\n- Learned vocabulary includes \"Haus\"\n- Replaced: \"Do you live in a Haus?\"\n\nProvide only the final sentence after replacements."
     },
     "parameters": ["previousResponse", "vocabularyString", "grammarString"]
 	},

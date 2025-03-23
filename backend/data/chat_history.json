@@ -1,91 +1,91 @@
 {
     "ankit@gmail.com": [
         {
-            "message": "Ja, wir haben milk. Welche Art von milk möchten Sie denn?\n",
-            "source": "ai"
-        },
-        {
-            "message": "Hey whats up\n",
+            "message": "Hey whats up",
             "source": "user"
         },
         {
-            "message": "Not much, just working! What can I get for you today?\n",
+            "message": "Not much, just serving customers! What can I get for you today?\n",
             "source": "ai"
         },
         {
-            "message": "Kann ich get some coffee",
+            "message": "Hey brother",
             "source": "user"
         },
         {
-            "message": "Sure, what kind of coffee would you like?\n",
+            "message": "Hey! What can I get for you today?\n",
             "source": "ai"
         },
         {
-            "message": "Hey I want a Kaffee",
+            "message": "Hey bruder",
             "source": "user"
         },
         {
-            "message": "Okay, sure! Would you like that hot or iced, and do you have a preference for milk?\n",
+            "message": "Hey! What can I get for you today?\n",
             "source": "ai"
         },
         {
-            "message": "Can you say coffee for me",
+            "message": "was ist los",
             "source": "user"
         },
         {
-            "message": "Certainly! One Kaffee coming right up! Anything else I can get for you?\n",
+            "message": "Entschuldigung, was kann ich Ihnen bringen?\n",
             "source": "ai"
         },
         {
-            "message": "hello I möchte spiele with you",
+            "message": "I want to buy a kaffee",
             "source": "user"
         },
         {
-            "message": "Hello! I'm afraid I don't understand. Perhaps you'd like to order something?\n",
+            "message": "Okay, a Kaffee! Sure, I can get that for you. Anything else?\n",
             "source": "ai"
         },
         {
-            "message": "I möchte go",
+            "message": "Hey I need to get some milch too",
             "source": "user"
         },
         {
-            "message": "Okay, what möchte you like to order today?\n",
+            "message": "Okay, I'll get you some milk. Anything else I can get for you?\n",
             "source": "ai"
         },
         {
-            "message": "Hey bruder how are you?",
+            "message": "Okay nice thanks, ",
             "source": "user"
         },
         {
-            "message": "I'm good, thanks! What can I get for you today?\n",
+            "message": "You're welcome! Can I get you anything to drink or eat?\n",
             "source": "ai"
         },
         {
-            "message": "Can you call me brother please",
+            "message": "Ich möchte",
             "source": "user"
         },
         {
-            "message": "Sure thing, Bruder. What kann I get for you today?\n",
+            "message": "Ich möchte ... Okay, was darf ich Ihnen bringen?\n",
             "source": "ai"
-        }
-    ],
-    "john@example.com": [
+        },
         {
-            "message": "Hello there!",
+            "message": "can you say milk",
             "source": "user"
         },
         {
-            "message": "Hi! How can I help?",
+            "message": "Milch. We have whole, skim, oat, and almond. Which would you like in your drink?\n",
             "source": "ai"
-        }
-    ],
-    "emma@domain.com": [
+        },
         {
-            "message": "Good morning!",
+            "message": "can you say coffee",
             "source": "user"
         },
         {
-            "message": "Morning! How’s your day?",
+            "message": "Certainly! Coming right up! What kind of Kaffee would you like?\n",
+            "source": "ai"
+        },
+        {
+            "message": "I want hilfe",
+            "source": "user"
+        },
+        {
+            "message": "Entschuldigung, ich spreche kein Deutsch. Can I help you in English?\n",
             "source": "ai"
         }
     ]
