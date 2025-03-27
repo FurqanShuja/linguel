@@ -85,10 +85,10 @@ export const FlashCard = () => {
               </div>
               <div className="flashcard-back">
               <div className="card-content">
-                <p style={{ fontSize: '1em' }}>{card.description}</p>
+                <p style={{ fontSize: '2em' }}>{card.description}</p>
                 <p style={{ marginTop: '1em' }}><strong>Example</strong></p>
-                <p style={{ marginTop: '1em' }}>English Version: {card.question}</p>
-                <p style={{ marginTop: '1em' }}>German Version: {card.answer}</p>
+                <p style={{ marginTop: '1em', fontSize: '0.9em' }}>EN: {card.question}</p>
+                <p style={{ marginTop: '1em', fontSize: '0.9em' }}>DE: {card.answer}</p>
                 </div>
               </div>
             </div>

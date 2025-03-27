@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './ChatInterface.css';
 
 interface Message {
@@ -7,13 +7,20 @@ interface Message {
   timestamp: Date;
 }
 
-export const ChatInterface = () => {
+interface ChatInterfaceProps {
+  scenarioContext?: string;
+}
+
+export const ChatInterface: React.FC<ChatInterfaceProps> = ({ scenarioContext }) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState('');
   const [userEmail, setUserEmail] = useState<string | null>(null);
   const [suggestion, setSuggestion] = useState<string | null>(null);
   const [matchFound, setMatchFound] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [fontSize, setFontSize] = useState(14); // Default font size
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Retrieve the backend base URL from your .env (e.g. VITE_API_URL=http://127.0.0.1:8000)
   const BASE_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
@@ -42,6 +49,40 @@ export const ChatInterface = () => {
     }
   }, [BASE_URL]);
 
+  const scrollToBottom = () => {
+    setTimeout(() => {
+      const messages = document.querySelector('.chat-messages');
+      if (!messages) return;
+      
+      const targetScroll = messages.scrollHeight;
+      const startScroll = messages.scrollTop;
+      const distance = targetScroll - startScroll;
+      const duration = 500; // 5 seconds
+      let start: number;
+
+      const step = (timestamp: number) => {
+        if (!start) start = timestamp;
+        const elapsed = timestamp - start;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Easing function for smoother animation
+        const easing = (t: number) => t * (2 - t);
+        
+        messages.scrollTop = startScroll + (distance * easing(progress));
+
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      };
+
+      window.requestAnimationFrame(step);
+    },200); // 1 second initial delay
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]); // Scroll when messages update
+
   const saveReplacement = async (replacementText: string) => {
     try {
       await fetch(`${BASE_URL}/save_replacement`, {
@@ -57,13 +98,21 @@ export const ChatInterface = () => {
     }
   };
 
-  const checkSuggestionMatch = (userText: string) => {
-    if (suggestion && suggestion.includes('->')) {
+  const checkSuggestionMatch = async (userText: string) => {
+    if (suggestion) {
+      if (!suggestion.includes('->')) {
+        setIsExiting(true);
+        setTimeout(() => {
+          setSuggestion(null);
+          setIsExiting(false);
+        }, 300);
+        return;
+      }
+
       const rightSide = suggestion.split('->')[1]?.trim().toLowerCase() || '';
       if (rightSide && userText.toLowerCase().includes(rightSide)) {
         setMatchFound(true);
-        // Save the replacement when match is found
-        saveReplacement(suggestion);
+        await saveReplacement(suggestion);
         
         setTimeout(() => {
           setIsExiting(true);
@@ -86,46 +135,52 @@ export const ChatInterface = () => {
   const handleSendMessage = async () => {
     if (!inputMessage.trim()) return;
     
-    checkSuggestionMatch(inputMessage);
-    
     const newMessage: Message = {
       content: inputMessage,
       sender: 'user',
       timestamp: new Date()
     };
     
+    // Immediately show user message and start loading
     setMessages([...messages, newMessage]);
     setInputMessage('');
+    setIsLoading(true);
 
-    // Send message to backend
     try {
+      // First complete the save replacement if needed
+      await checkSuggestionMatch(inputMessage);
+
+      // Only after save is complete, start the chat request
       const resp = await fetch(`${BASE_URL}/learning_chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           user_input: newMessage.content,
           email: userEmail,
-          // Fixed scenario
-          situation: 'You are in a waiter in a cafe and conversing with the user to take his order'
+          situation: scenarioContext || 'You are in a waiter in a cafe and conversing with the user to take his order'
         })
       });
+      
       const data = await resp.json();
-
       const aiResponse = data.result || 'No response received';
+      
       const newAiMessage: Message = {
         content: aiResponse,
         sender: 'ai',
         timestamp: new Date()
       };
-      setMessages((prev) => [...prev, newAiMessage]);
+      
+      setMessages(prev => [...prev, newAiMessage]);
     } catch (error) {
-      console.error('Error calling /learning_chat:', error);
-      const newAiMessage: Message = {
+      console.error('Error in chat sequence:', error);
+      const errorMessage: Message = {
         content: 'Error processing your request. Please try again.',
         sender: 'ai',
         timestamp: new Date()
       };
-      setMessages((prev) => [...prev, newAiMessage]);
+      setMessages(prev => [...prev, errorMessage]);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -150,17 +205,43 @@ export const ChatInterface = () => {
     }
   };
 
+  const adjustFontSize = (increment: boolean) => {
+    setFontSize(prev => {
+      const newSize = increment ? prev + 1 : prev - 1;
+      return Math.min(Math.max(newSize, 12), 20); // Limit between 12px and 20px
+    });
+  };
+
   return (
     <div className="chat-interface">
+      <div className="font-size-controls">
+        <button onClick={() => adjustFontSize(false)} className="font-size-btn">
+          <span>−</span>
+        </button>
+        <button onClick={() => adjustFontSize(true)} className="font-size-btn">
+          <span>+</span>
+        </button>
+      </div>
       <div className="chat-messages">
         {messages.map((message, index) => (
           <div 
             key={index}
             className={`message ${message.sender === 'user' ? 'user-message' : 'ai-message'}`}
+            style={{ fontSize: `${fontSize}px` }}
           >
             {message.content}
           </div>
         ))}
+        {isLoading && (
+          <div className="message ai-message loading">
+            <div className="typing-indicator">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        )}
+        <div ref={messagesEndRef} /> {/* Scroll anchor */}
       </div>
 
       <div className="chat-input">

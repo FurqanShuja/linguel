@@ -8,7 +8,26 @@ export const LearningChat = () => {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<1 | 2>(1);
+  const [selectedScenario, setSelectedScenario] = useState<string | null>(null);
   const dropdownWrapperRef = useRef<HTMLDivElement>(null);
+
+  const scenarios = [
+    {
+      id: 'cafe',
+      title: 'Going inside a cafe',
+      context: 'You are having a conversation with the user as a waiter about ordering drinks and food in a cafe.'
+    },
+    {
+      id: 'trip',
+      title: 'Planning a trip with a friend', 
+      context: 'You are discussing travel plans, dates and destinations with your friend.'
+    },
+    {
+      id: 'finances',
+      title: 'Dealing finances with partner',
+      context: 'You are having a discussion with your partner about money, expenses and financial planning.'
+    }
+  ];
 
   useEffect(() => {
     const email = localStorage.getItem('userEmail');
@@ -84,6 +103,23 @@ export const LearningChat = () => {
     setMenuOpen((prev) => !prev);
   };
 
+  const renderScenarioSelection = () => (
+    <div className="scenario-selection">
+      <h2>Choose your learning adventure</h2>
+      <div className="scenario-options">
+        {scenarios.map((scenario) => (
+          <button
+            key={scenario.id}
+            className="scenario-button"
+            onClick={() => setSelectedScenario(scenario.id)}
+          >
+            {scenario.title}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+
   return (
     <div className="learning-chat-container">
       <div className="learning-chat-header">
@@ -92,7 +128,7 @@ export const LearningChat = () => {
             <div className="logo-wrapper" onClick={toggleMenu}>
               <div className="text-logo">
                 <span className="logo-part-1">Lang</span>
-                <span className="logo-part-2">auge</span>
+                <span className="logo-part-2">ey</span>
               </div>
               <span className="dropdown-arrow">
                 <svg
@@ -135,7 +171,15 @@ export const LearningChat = () => {
         </button>
       </div>
       <div className="learning-chat-content">
-        {selectedOption === 1 ? <ChatInterface /> : <FlashCard />}
+        {selectedOption === 1 ? (
+          selectedScenario ? (
+            <ChatInterface scenarioContext={scenarios.find(s => s.id === selectedScenario)?.context} />
+          ) : (
+            renderScenarioSelection()
+          )
+        ) : (
+          <FlashCard />
+        )}
       </div>
     </div>
   );
