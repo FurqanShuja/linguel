@@ -5,87 +5,311 @@
             "source": "user"
         },
         {
-            "message": "Not much, just serving customers! What can I get for you today?\n",
+            "message": "Not much, what can I get for you to drink or eat today?\n",
             "source": "ai"
         },
         {
-            "message": "Hey brother",
+            "message": "hello brother",
             "source": "user"
         },
         {
-            "message": "Hey! What can I get for you today?\n",
+            "message": "Hey there! Ready to order some drinks or food?\n",
             "source": "ai"
         },
         {
-            "message": "Hey bruder",
+            "message": "hello bruder",
             "source": "user"
         },
         {
-            "message": "Hey! What can I get for you today?\n",
+            "message": "Hey there! What can I get for you to drink or eat?\n",
             "source": "ai"
         },
         {
-            "message": "was ist los",
+            "message": "call me brother",
             "source": "user"
         },
         {
-            "message": "Entschuldigung, was kann ich Ihnen bringen?\n",
+            "message": "Alright, Bruder. What can I get for you today?\n",
             "source": "ai"
         },
         {
-            "message": "I want to buy a kaffee",
+            "message": "I want kaffee",
             "source": "user"
         },
         {
-            "message": "Okay, a Kaffee! Sure, I can get that for you. Anything else?\n",
+            "message": "Okay, just to confirm, you'd like a Kaffee?\n",
             "source": "ai"
         },
         {
-            "message": "Hey I need to get some milch too",
+            "message": "I also want a bottle of milch",
             "source": "user"
         },
         {
-            "message": "Okay, I'll get you some milk. Anything else I can get for you?\n",
+            "message": "Okay, a bottle of Milch. Got it. Anything else for you?\n",
             "source": "ai"
         },
         {
-            "message": "Okay nice thanks, ",
+            "message": "I also want a Flasche of Milch",
             "source": "user"
         },
         {
-            "message": "You're welcome! Can I get you anything to drink or eat?\n",
+            "message": "Certainly! I'll bring you a Flasche of Milch right away.\n",
             "source": "ai"
         },
         {
-            "message": "Ich möchte",
+            "message": "I also möchte a Flasche of Milch",
             "source": "user"
         },
         {
-            "message": "Ich möchte ... Okay, was darf ich Ihnen bringen?\n",
+            "message": "Certainly. I'll bring you a Flasche of Milch right away.\n",
             "source": "ai"
         },
         {
-            "message": "can you say milk",
+            "message": "Ich also möchte a Flasche of Milch",
             "source": "user"
         },
         {
-            "message": "Milch. We have whole, skim, oat, and almond. Which would you like in your drink?\n",
+            "message": "Okay, eine Flasche Milch. Gerne! Anything else for you?\n",
             "source": "ai"
         },
         {
-            "message": "can you say coffee",
+            "message": "Ich also möchte a Flasche von Milch",
             "source": "user"
         },
         {
-            "message": "Certainly! Coming right up! What kind of Kaffee would you like?\n",
+            "message": "Alright, one Flasche von Milch coming right up! Anything else Ich can get you?\n",
             "source": "ai"
         },
         {
-            "message": "I want hilfe",
+            "message": "Ich also möchte eine Flasche von Milch",
             "source": "user"
         },
         {
-            "message": "Entschuldigung, ich spreche kein Deutsch. Can I help you in English?\n",
+            "message": "Certainly! A Flasche of Milch. Anything else I can get for you?\n",
+            "source": "ai"
+        },
+        {
+            "message": "Ich also möchte eine Flasche Milch",
+            "source": "user"
+        },
+        {
+            "message": "Okay, eine Flasche Milch, kommt sofort!\n",
+            "source": "ai"
+        },
+        {
+            "message": "Ich auch möchte eine Flasche Milch",
+            "source": "user"
+        },
+        {
+            "message": "Okay, eine Flasche Milch für you. Anything else für now?\n",
+            "source": "ai"
+        },
+        {
+            "message": "Mir auch möchte eine Flasche Milch",
+            "source": "user"
+        },
+        {
+            "message": "Okay, eine Flasche Milch für Sie. Anything else for you?\n",
+            "source": "ai"
+        },
+        {
+            "message": "Mir auch möchte auch eine Flasche Milch",
+            "source": "user"
+        },
+        {
+            "message": "Okay, eine Flasche Milch für Sie. Gerne!\n",
+            "source": "ai"
+        },
+        {
+            "message": " Ich möchte auch eine Flasche Milch",
+            "source": "user"
+        },
+        {
+            "message": "Okay, eine Flasche Milch. Anything else for you right now?\n",
+            "source": "ai"
+        },
+        {
+            "message": "Hello hello",
+            "source": "user"
+        },
+        {
+            "message": "Hello! Welcome! What can I get for you to drink or eat?\n",
+            "source": "ai"
+        },
+        {
+            "message": "What do you have",
+            "source": "user"
+        },
+        {
+            "message": "We have Kaffee, tea, juices, pastries, sandwiches, and salads. What can I get you?\n",
+            "source": "ai"
+        },
+        {
+            "message": "say I want",
+            "source": "user"
+        },
+        {
+            "message": "Okay, what would you like to order?\n",
+            "source": "ai"
+        },
+        {
+            "message": "bottle of milk?",
+            "source": "user"
+        },
+        {
+            "message": "I'm sorry, we don't sell bottled Milch. Would you like something else?\n",
+            "source": "ai"
+        },
+        {
+            "message": "do you have a watter",
+            "source": "user"
+        },
+        {
+            "message": "Yes, we have water. Still or sparkling?\n",
+            "source": "ai"
+        },
+        {
+            "message": "do you have a bottle",
+            "source": "user"
+        },
+        {
+            "message": "Of water? Yes, we do. Still or sparkling?\n",
+            "source": "ai"
+        },
+        {
+            "message": "say bottle to me",
+            "source": "user"
+        },
+        {
+            "message": "Okay, eine Flasche von what would you like?\n",
+            "source": "ai"
+        },
+        {
+            "message": "I want to buy ein auto",
+            "source": "user"
+        },
+        {
+            "message": "I'm sorry, I don't understand. Could you please clarify your order?\n",
+            "source": "ai"
+        },
+        {
+            "message": "Can you say a car to me",
+            "source": "user"
+        },
+        {
+            "message": "I'm sorry, I don't understand. Are you looking for a menu?\n",
+            "source": "ai"
+        },
+        {
+            "message": "I want  die Speisekarte",
+            "source": "user"
+        },
+        {
+            "message": "Here is die Speisekarte for you.\n",
+            "source": "ai"
+        },
+        {
+            "message": "hey",
+            "source": "user"
+        },
+        {
+            "message": "Hey there! Ready to order drinks or food?\n",
+            "source": "ai"
+        },
+        {
+            "message": "yup",
+            "source": "user"
+        },
+        {
+            "message": "Okay, great. What can I get started for you to drink?\n",
+            "source": "ai"
+        },
+        {
+            "message": "I want something",
+            "source": "user"
+        },
+        {
+            "message": "Okay, what are you in die Speisekarte mood for? Hot, cold, sweet, or savory?\n",
+            "source": "ai"
+        },
+        {
+            "message": "hey I wanna tee",
+            "source": "user"
+        },
+        {
+            "message": "Okay, a Tee time? Let's see if it fits the budget this month.\n",
+            "source": "ai"
+        },
+        {
+            "message": "in ordnung",
+            "source": "user"
+        },
+        {
+            "message": "Okay, sounds gut. Let's get this organized.\n",
+            "source": "ai"
+        },
+        {
+            "message": "was kinglt",
+            "source": "user"
+        },
+        {
+            "message": "I'm sorry, Ich didn't understand that. Can you please rephrase your question?\n",
+            "source": "ai"
+        },
+        {
+            "message": "was klingit",
+            "source": "user"
+        },
+        {
+            "message": "Sorry, I don't understand \"klingit.\" Can you please rephrase your question?\n",
+            "source": "ai"
+        },
+        {
+            "message": "nein I cant ",
+            "source": "user"
+        },
+        {
+            "message": "Okay, let's figure out what you can and can't do. What's the issue?\n",
+            "source": "ai"
+        },
+        {
+            "message": "I dont understand, my language is komish",
+            "source": "user"
+        },
+        {
+            "message": "I'm sorry, I don't speak Komi. Let's continue in English, okay?\n",
+            "source": "ai"
+        },
+        {
+            "message": "okay",
+            "source": "user"
+        },
+        {
+            "message": "Okay, so where were we? Let's pick up von there.\n",
+            "source": "ai"
+        },
+        {
+            "message": "okay",
+            "source": "user"
+        },
+        {
+            "message": "Okay, where were we? Let's get back to it.\n",
+            "source": "ai"
+        },
+        {
+            "message": "okay",
+            "source": "user"
+        },
+        {
+            "message": "Okay, so where were we? Let's try to find some common ground.\n",
+            "source": "ai"
+        },
+        {
+            "message": "where were we",
+            "source": "user"
+        },
+        {
+            "message": "We were just talking about setting a budget für groceries.\n",
             "source": "ai"
         }
     ]

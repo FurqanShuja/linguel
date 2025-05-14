@@ -127,8 +127,7 @@ export const LearningChat = () => {
           <div className={`logo-container ${menuOpen ? 'active' : ''}`}>
             <div className="logo-wrapper" onClick={toggleMenu}>
               <div className="text-logo">
-                <span className="logo-part-1">Lang</span>
-                <span className="logo-part-2">ey</span>
+                <span className="logo-part-2">Langey</span>
               </div>
               <span className="dropdown-arrow">
                 <svg

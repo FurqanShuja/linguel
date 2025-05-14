@@ -53,6 +53,7 @@ def learning_chat(user_input: str, email: str, situation: str) -> str:
                 "situation": situation
             }
         )
+        print(f"Prompt generate: {prompt_generate}")
     except ValueError as e:
         return f"Error retrieving prompt: {e}"
 
@@ -77,7 +78,7 @@ def learning_chat(user_input: str, email: str, situation: str) -> str:
         return f"Error retrieving prompt: {e}"
 
     final_response = get_response(prompt_replace)
-    # print(f"Final model response:\n{final_response}\n")
+    print(f"Final model response:\n{prompt_replace}\n")
 
     # --------------------------------------------------------------------------------
     # F) (Optional) Update chat history with the new conversation data.

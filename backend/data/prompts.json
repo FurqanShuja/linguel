@@ -1,7 +1,7 @@
 {
 	"GENERATE_RESPONSE": {
     "prompt": {
-        "en": "You are currently in the following situation: [[situation]]. Respond naturally and concisely to the user's query in a maximum of 15 words.\n\nUser's query: [[userMessage]]"
+        "en": "You are currently in the following situation: [[situation]]. Respond naturally and concisely to the user's query in ENGLISH Language in a maximum of 15 words.\n\nUser's query: [[userMessage]]"
     },
     "parameters": ["situation", "userMessage"]
 	},
@@ -17,9 +17,10 @@
     },
     "parameters": ["userMessage", "vocabularyString", "grammarString"]
 	},
-	"REPLACEMENT_TO_CARD": {
+	
+    "REPLACEMENT_TO_CARD": {
     "prompt": {
-        "en": "Given the replacement suggestion provided: [[trigger_replacement_str]], create a structured JSON flashcard. Extract only the German replacement word or phrase and clearly define it in the JSON.\n\nThe output JSON must strictly follow this structure:\n\n{\n    \"type\": \"Vocabulary or Grammar (based on input)\",\n    \"title\": \"For vocabulary add the german word only example 'Das Haus', for grammar add the rule and word example 'Verb Inflection (rennt)'\",\n    \"description\": \"A one line description about what is replaced with what.\",\n    \"question\": \"An example English sentence using the original word/phrase.\",\n    \"answer\": \"The same example sentence with the German replacement inserted appropriately.\"\n}\n\nEnsure your response is ONLY valid JSON, with no additional text."
+        "en": "Given the replacement suggestion provided: [[trigger_replacement_str]], create a structured JSON flashcard. Extract only the German replacement word or phrase and clearly define it in the JSON.\n\nThe output JSON must strictly follow this structure:\n\n{\n    \"type\": \"Vocabulary or Grammar (based on input)\",\n    \"title\": \"For vocabulary add the german word only example 'Das Haus', for grammar add the rule and word example 'Verb Inflection (rennt)', donot add any other text\",\n    \"description\": \"If its a simple german vocabulary/grammar, only write its English replacement. If its a complex german vocabulary/grammar, write the definition in English in max 10 words.\",\n    \"question\": \"An example English sentence using the original word/phrase.\",\n    \"answer\": \"The same example sentence with the German replacement inserted appropriately.\"\n}\n\nEnsure your response is ONLY valid JSON, with no additional text."
     },
     "parameters": ["trigger_replacement_str"]
 	}
