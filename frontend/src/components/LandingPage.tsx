@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom"
 import "./LandingPage.css"
 import logo from "../assets/images/logo.png";
+import backgroundImage from "../assets/images/background_image.jpg";
 
 // Define types for button props
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -208,7 +209,22 @@ function LandingPage() {
           className="hero-logo"
         />
       </div>
-      <motion.div className="grid-background">
+      <motion.div className="grid-background"
+        style={{
+          background: `
+            linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)),
+            url(${backgroundImage})
+          `,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: -1
+        }}
+      >
         <div className="black-overlay" />
         <motion.div
           className="grid-pattern"

@@ -161,6 +161,15 @@
             "answer": "Are you going to the party? Nein.",
             "available_timedate": "2025-05-04 18:55:30",
             "visit_count": 0
+        },
+        {
+            "type": "Vocabulary",
+            "title": "Sie",
+            "description": "You (formal)",
+            "question": "Are you going to the store?",
+            "answer": "Gehen Sie zum Laden?",
+            "available_timedate": "2025-05-25 14:18:31",
+            "visit_count": 0
         }
     ]
 }

@@ -311,6 +311,46 @@
         {
             "message": "We were just talking about setting a budget für groceries.\n",
             "source": "ai"
+        },
+        {
+            "message": "hello whats up",
+            "source": "user"
+        },
+        {
+            "message": "Not much, how can I help you today? Ready to order?\n",
+            "source": "ai"
+        },
+        {
+            "message": "respond to me in german please",
+            "source": "user"
+        },
+        {
+            "message": "Entschuldigung, aber Ich kann das leider nicht auf Deutsch machen.\n",
+            "source": "ai"
+        },
+        {
+            "message": "hello how are Sie?",
+            "source": "user"
+        },
+        {
+            "message": "I'm good, thank you! What can I get for Sie today?\n",
+            "source": "ai"
+        },
+        {
+            "message": "I want to learn somehting",
+            "source": "user"
+        },
+        {
+            "message": "Alright! What are you in the mood for today? Anything specific catch your eye?\n",
+            "source": "ai"
+        },
+        {
+            "message": "hello i want coffee",
+            "source": "user"
+        },
+        {
+            "message": "Okay! What kind of Kaffee would you like?\n",
+            "source": "ai"
         }
     ]
 }
