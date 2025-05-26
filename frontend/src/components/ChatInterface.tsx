@@ -2,9 +2,12 @@ import { useState, useEffect, useRef } from 'react';
 import './ChatInterface.css';
 
 interface Message {
+  id: string;
   content: string;
   sender: 'user' | 'ai';
   timestamp: Date;
+  grammar?: { [key: string]: string };
+  vocabulary?: { [key: string]: string };
 }
 
 interface ChatInterfaceProps {
@@ -15,11 +18,12 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({ scenarioContext })
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState('');
   const [userEmail, setUserEmail] = useState<string | null>(null);
-  const [suggestion, setSuggestion] = useState<string | null>(null);
-  const [matchFound, setMatchFound] = useState(false);
+  const [suggestions, setSuggestions] = useState<string[]>([]); // Changed to array
   const [isExiting, setIsExiting] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [fontSize, setFontSize] = useState(14); // Default font size
+  const [expandedMessages, setExpandedMessages] = useState<Set<string>>(new Set());
+  const [closingMessages, setClosingMessages] = useState<Set<string>>(new Set());
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Retrieve the backend base URL from your .env (e.g. VITE_API_URL=http://127.0.0.1:8000)
@@ -37,10 +41,13 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({ scenarioContext })
           // Expecting data.history to be an array of messages
           // Adjust shape as needed if your API differs
           if (data.history && Array.isArray(data.history)) {
-            const loadedMessages = data.history.map((msg: any) => ({
+            const loadedMessages = data.history.map((msg: any, index: number) => ({
+              id: msg.id || `loaded-${index}-${Date.now()}`,
               content: msg.message,
               sender: msg.source === 'ai' ? 'ai' : 'user',
-              timestamp: new Date(msg.timestamp)
+              timestamp: new Date(msg.timestamp || Date.now()),
+              grammar: (msg.grammar && typeof msg.grammar === 'object') ? msg.grammar : {},
+              vocabulary: (msg.vocabulary && typeof msg.vocabulary === 'object') ? msg.vocabulary : {}
             }));
             setMessages(loadedMessages);
           }
@@ -98,44 +105,51 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({ scenarioContext })
     }
   };
 
-  const checkSuggestionMatch = async (userText: string) => {
-    if (suggestion) {
-      if (!suggestion.includes('->')) {
-        setIsExiting(true);
-        setTimeout(() => {
-          setSuggestion(null);
-          setIsExiting(false);
-        }, 300);
-        return;
-      }
-
-      const rightSide = suggestion.split('->')[1]?.trim().toLowerCase() || '';
-      if (rightSide && userText.toLowerCase().includes(rightSide)) {
-        setMatchFound(true);
-        await saveReplacement(suggestion);
-        
-        setTimeout(() => {
-          setIsExiting(true);
-          setTimeout(() => {
-            setSuggestion(null);
-            setMatchFound(false);
-            setIsExiting(false);
-          }, 300);
-        }, 2000);
-      } else {
-        setIsExiting(true);
-        setTimeout(() => {
-          setSuggestion(null);
-          setIsExiting(false);
-        }, 300);
-      }
+  const applySuggestion = async (suggestion: string) => {
+    if (!suggestion.includes('->')) return;
+    
+    // Parse the suggestion
+    const parts = suggestion.split('->');
+    const originalPart = parts[0].trim();
+    const replacementText = parts[1].trim();
+    
+    // Extract the original text without the type prefix
+    let originalText = originalPart;
+    if (originalPart.includes(':')) {
+      originalText = originalPart.split(':')[1].trim();
     }
+    
+    // Create a regex that matches the word with space, question mark, exclamation mark or period boundaries
+    const regex = new RegExp(`(\\s|\\.|\\?|\\!|^)${originalText}(\\s|\\.|\\?|\\!|$)`, 'g');
+    
+    // Replace in the input message, preserving the boundary characters
+    const newInputMessage = inputMessage.replace(regex, (match, p1, p2) => {
+      return `${p1}${replacementText}${p2}`;
+    });
+    
+    // First set the exiting state for smooth animation
+    setIsExiting(true);
+    
+    // Wait for the exit animation to complete before updating the input
+    setTimeout(() => {
+      setInputMessage(newInputMessage);
+      
+      // Save the replacement card
+      saveReplacement(suggestion);
+      
+      // Clear suggestions after the animation completes
+      setTimeout(() => {
+        setSuggestions([]);
+        setIsExiting(false);
+      }, 100); // Short delay to ensure state is updated properly
+    }, 300); // Match the animation duration
   };
 
   const handleSendMessage = async () => {
     if (!inputMessage.trim()) return;
     
     const newMessage: Message = {
+      id: Date.now().toString(),
       content: inputMessage,
       sender: 'user',
       timestamp: new Date()
@@ -147,11 +161,8 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({ scenarioContext })
     setIsLoading(true);
 
     try {
-      // First complete the save replacement if needed
-      await checkSuggestionMatch(inputMessage);
-
-      // Only after save is complete, start the chat request
-      const resp = await fetch(`${BASE_URL}/learning_chat`, {
+      // Use the new endpoint that returns analysis data
+      const resp = await fetch(`${BASE_URL}/learning_chat_with_analysis`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -162,18 +173,53 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({ scenarioContext })
       });
       
       const data = await resp.json();
-      const aiResponse = data.result || 'No response received';
       
-      const newAiMessage: Message = {
-        content: aiResponse,
-        sender: 'ai',
-        timestamp: new Date()
+      if (data.error) {
+        throw new Error(data.error);
+      }
+      
+      const aiResponse = data.response || 'No response received';
+      const userAnalysis = data.user_analysis || { grammar: {}, vocabulary: {} };
+      const aiAnalysis = data.ai_analysis || { grammar: {}, vocabulary: {} };
+      
+      // Validate and sanitize analysis data
+      const sanitizeAnalysis = (analysis: any) => ({
+        grammar: (analysis.grammar && typeof analysis.grammar === 'object') ? analysis.grammar : {},
+        vocabulary: (analysis.vocabulary && typeof analysis.vocabulary === 'object') ? analysis.vocabulary : {}
+      });
+      
+      const sanitizedUserAnalysis = sanitizeAnalysis(userAnalysis);
+      const sanitizedAiAnalysis = sanitizeAnalysis(aiAnalysis);
+      
+      // Update the user message with analysis
+      const updatedUserMessage: Message = {
+        ...newMessage,
+        grammar: sanitizedUserAnalysis.grammar,
+        vocabulary: sanitizedUserAnalysis.vocabulary
       };
       
-      setMessages(prev => [...prev, newAiMessage]);
+      const newAiMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        content: aiResponse,
+        sender: 'ai',
+        timestamp: new Date(),
+        grammar: sanitizedAiAnalysis.grammar,
+        vocabulary: sanitizedAiAnalysis.vocabulary
+      };
+      
+      // Update messages with both user and AI messages including analysis
+      setMessages(prev => {
+        const updatedMessages = [...prev];
+        // Replace the last message (user message) with the analyzed version
+        updatedMessages[updatedMessages.length - 1] = updatedUserMessage;
+        // Add the AI message
+        updatedMessages.push(newAiMessage);
+        return updatedMessages;
+      });
     } catch (error) {
       console.error('Error in chat sequence:', error);
       const errorMessage: Message = {
+        id: Date.now().toString(),
         content: 'Error processing your request. Please try again.',
         sender: 'ai',
         timestamp: new Date()
@@ -190,6 +236,16 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({ scenarioContext })
     if (!inputMessage.trim()) return;
 
     try {
+      // First, hide any existing suggestions with the exit animation
+      if (suggestions.length > 0) {
+        setIsExiting(true);
+        await new Promise(resolve => setTimeout(resolve, 300)); // Wait for exit animation
+      }
+      
+      // Clear existing suggestions
+      setSuggestions([]);
+      setIsExiting(false);
+      
       const resp = await fetch(`${BASE_URL}/trigger_replacement`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -198,8 +254,27 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({ scenarioContext })
           email: userEmail
         })
       });
+      
       const data = await resp.json();
-      setSuggestion(data.result || null);
+      const result = data.result || '';
+      
+      // Process all suggestions at once
+      let suggestionList = [];
+      
+      if (result === 'None') {
+        // If no suggestions, show a single 'None' suggestion
+        suggestionList = ['None'];
+      } else {
+        // Split by line breaks to get multiple suggestions
+        suggestionList = result.split('\n').filter((s: string) => s.trim() !== '');
+        suggestionList = suggestionList.slice(0, 3); // Limit to max 3 suggestions
+      }
+      
+      // Use a small delay to ensure DOM updates are batched
+      setTimeout(() => {
+        // Set all suggestions at once
+        setSuggestions(suggestionList);
+      }, 50);
     } catch (error) {
       console.error('Error calling /trigger_replacement:', error);
     }
@@ -209,6 +284,45 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({ scenarioContext })
     setFontSize(prev => {
       const newSize = increment ? prev + 1 : prev - 1;
       return Math.min(Math.max(newSize, 12), 20); // Limit between 12px and 20px
+    });
+  };
+
+  const toggleMessageExpansion = (messageId: string) => {
+    const isLastMessage = messages.length > 0 && messages[messages.length - 1].id === messageId;
+    
+    setExpandedMessages(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(messageId)) {
+        // Start closing animation
+        setClosingMessages(prevClosing => new Set(prevClosing).add(messageId));
+        
+        // Remove from expanded after animation completes
+        setTimeout(() => {
+          setExpandedMessages(prevExpanded => {
+            const updatedSet = new Set(prevExpanded);
+            updatedSet.delete(messageId);
+            return updatedSet;
+          });
+          setClosingMessages(prevClosing => {
+            const updatedSet = new Set(prevClosing);
+            updatedSet.delete(messageId);
+            return updatedSet;
+          });
+        }, 300); // Match animation duration
+        
+        return newSet; // Don't remove immediately
+      } else {
+        newSet.add(messageId);
+        
+        // If this is the last message being expanded, scroll to bottom after expansion
+        if (isLastMessage) {
+          setTimeout(() => {
+            scrollToBottom();
+          }, 350); // Wait for expansion animation to complete
+        }
+        
+        return newSet;
+      }
     });
   };
 
@@ -229,7 +343,66 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({ scenarioContext })
             className={`message ${message.sender === 'user' ? 'user-message' : 'ai-message'}`}
             style={{ fontSize: `${fontSize}px` }}
           >
-            {message.content}
+            <div className="message-content">
+              {message.sender === 'user' && (
+                <div 
+                  className={`expand-icon left ${expandedMessages.has(message.id) ? 'expanded' : ''}`}
+                  onClick={() => toggleMessageExpansion(message.id)}
+                >
+                  ❯
+                </div>
+              )}
+              <div className="message-text">
+                {message.content}
+              </div>
+              {message.sender === 'ai' && (
+                <div 
+                  className={`expand-icon right ${expandedMessages.has(message.id) ? 'expanded' : ''}`}
+                  onClick={() => toggleMessageExpansion(message.id)}
+                >
+                  ❯
+                </div>
+              )}
+            </div>
+            {(expandedMessages.has(message.id) || closingMessages.has(message.id)) && (
+              <div className={`expanded-content ${closingMessages.has(message.id) ? 'closing' : ''}`}>
+                {/* Display Vocabulary section */}
+                {message.vocabulary && Object.keys(message.vocabulary).length > 0 && (
+                  <div className="vocabulary-section">
+                    <strong>Vocabulary:</strong>
+                    <div className="vocabulary-items">
+                      {Object.entries(message.vocabulary).map(([german, english], index) => (
+                        <div key={index} className="vocabulary-item">
+                          {german} → {english}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
+                {/* Display Grammar section */}
+                {message.grammar && Object.keys(message.grammar).length > 0 && (
+                  <div className="grammar-section">
+                    <strong>Grammar:</strong>
+                    <div className="grammar-items">
+                      {Object.entries(message.grammar).map(([german, english], index) => (
+                        <div key={index} className="grammar-item">
+                          {german} → {english}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
+                {/* Show message if no German content found */}
+                {(!message.vocabulary || Object.keys(message.vocabulary).length === 0) && 
+                 (!message.grammar || Object.keys(message.grammar).length === 0) && (
+                  <div className="no-content">
+                    No German vocabulary or grammar detected in this message.
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         ))}
         {isLoading && (
@@ -245,9 +418,17 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({ scenarioContext })
       </div>
 
       <div className="chat-input">
-        {suggestion && (
-          <div className={`suggestion-popup ${matchFound ? 'match-found' : ''} ${isExiting ? 'exiting' : ''}`}>
-            {suggestion}
+        {suggestions.length > 0 && (
+          <div className={`suggestions-container ${isExiting ? 'exiting' : ''}`}>
+            {suggestions.map((suggestion, index) => (
+              <div 
+                key={index} 
+                className="suggestion-item"
+                onClick={() => suggestion !== 'None' ? applySuggestion(suggestion) : null}
+              >
+                {suggestion}
+              </div>
+            ))}
           </div>
         )}
 

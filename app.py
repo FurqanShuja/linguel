@@ -33,11 +33,13 @@ def call_learning_chat(user_input: str, email: str, situation: str) -> str:
         "situation": situation,
     }
     try:
-        resp = requests.post(f"{BASE_URL}/learning_chat", json=payload)
+        resp = requests.post(f"{BASE_URL}/learning_chat_with_analysis", json=payload)
         data = resp.json()
-        return data.get("result", "No response received")
+        if "error" in data:
+            return f"Error: {data['error']}"
+        return data.get("response", "No response received")
     except Exception as e:
-        st.error(f"Error calling /learning_chat: {e}")
+        st.error(f"Error calling /learning_chat_with_analysis: {e}")
         return "Error processing your request. Please try again."
 
 def call_trigger_replacement(user_input: str, email: str) -> str:

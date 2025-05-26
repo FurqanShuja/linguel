@@ -5,46 +5,91 @@ from data import (
     get_learned_data
 )
 from features import get_response
+import json
 
-def learning_chat(user_input: str, email: str, situation: str) -> str:
+def analyze_message_content(message: str) -> dict:
     """
-    1. Retrieve authentication for the user (as an example).
-    2. Get the user's existing chat history (if needed).
-    3. Fetch all learned data, parse out Vocabulary vs. Grammar titles.
-    4. Generate a first response using the prompt 'GENERATE_RESPONSE'.
-    5. Generate a second response using the prompt 'REPLACE_RESPONSE'.
-    6. Optionally update chat history with the final messages.
-    7. Return the final response.
+    Analyze a message (user or AI) and extract German vocabulary and grammar elements.
+    
+    Args:
+        message (str): The message to analyze
+        
+    Returns:
+        dict: A dictionary with 'grammar' and 'vocabulary' fields containing German elements and their English translations
+    """
+    try:
+        prompt_analyze = get_prompt(
+            identifier="ANALYZE_MESSAGE_CONTENT",
+            replacements={
+                "message": message
+            }
+        )
+        
+        # Get response from LLM
+        response = get_response(prompt_analyze)
+        print(f"Raw LLM response for analysis: {response}")
+        
+        # Try to parse the JSON response
+        try:
+            # Clean the response - remove any potential markdown formatting
+            cleaned_response = response.strip()
+            if cleaned_response.startswith('```json'):
+                cleaned_response = cleaned_response[7:]
+            if cleaned_response.endswith('```'):
+                cleaned_response = cleaned_response[:-3]
+            cleaned_response = cleaned_response.strip()
+            
+            print(f"Cleaned response: {cleaned_response}")
+            
+            analysis = json.loads(cleaned_response)
+            # Ensure the response has the expected structure
+            if not isinstance(analysis, dict) or 'grammar' not in analysis or 'vocabulary' not in analysis:
+                print("Invalid analysis structure, returning empty analysis")
+                return {"grammar": {}, "vocabulary": {}}
+            
+            print(f"Parsed analysis: {analysis}")
+            return analysis
+        except json.JSONDecodeError as e:
+            # If JSON parsing fails, return empty structure
+            print(f"JSON decode error: {e}")
+            print(f"Failed to parse response: {response}")
+            return {"grammar": {}, "vocabulary": {}}
+            
+    except ValueError as e:
+        print(f"Error analyzing message content: {e}")
+        return {"grammar": {}, "vocabulary": {}}
 
+def learning_chat_with_analysis(user_input: str, email: str, situation: str) -> dict:
+    """
+    Performs the learning chat sequence with analysis.
+    1. Retrieve the user's existing chat history.
+    2. Fetch all learned data, parse out Vocabulary vs. Grammar titles.
+    3. Generate a first response using the prompt 'GENERATE_RESPONSE'.
+    4. Generate a second response using the prompt 'REPLACE_RESPONSE'.
+    5. Analyze both user input and AI response for German content.
+    6. Update chat history with the final messages including analysis.
+    7. Return the final response along with analysis data.
+    
     Args:
         user_input (str): The user's question or statement.
         email (str): The email address identifying the user.
         situation (str): The learning or conversational context.
-
+    
     Returns:
-        str: The final response generated after the second model call.
+        dict: A dictionary containing the AI response, user analysis, and AI analysis
     """
-
-    # --------------------------------------------------------------------------------
-    # B) (Optional) Retrieve the user's existing chat history (example usage).
-    # --------------------------------------------------------------------------------
+    # Get chat history
     chat_history = get_chat_history(email)
-    # print(f"Current chat history for {email}: {chat_history}")
-
-    # --------------------------------------------------------------------------------
-    # C) Retrieve the user's learned data and separate titles by type.
-    # --------------------------------------------------------------------------------
+    
+    # Get learned data
     learned_items = get_learned_data(email)
     vocabulary_titles = [item["title"] for item in learned_items if item["type"] == "Vocabulary"]
     grammar_titles    = [item["title"] for item in learned_items if item["type"] == "Grammar"]
-
-    # Convert the lists to comma-separated strings for easy prompt insertion
+    
     vocab_string   = ", ".join(vocabulary_titles)
     grammar_string = ", ".join(grammar_titles)
-
-    # --------------------------------------------------------------------------------
-    # D) Prompt 1: 'GENERATE_RESPONSE'
-    # --------------------------------------------------------------------------------
+    
+    # Generate first response
     try:
         prompt_generate = get_prompt(
             identifier="GENERATE_RESPONSE",
@@ -55,16 +100,11 @@ def learning_chat(user_input: str, email: str, situation: str) -> str:
         )
         print(f"Prompt generate: {prompt_generate}")
     except ValueError as e:
-        return f"Error retrieving prompt: {e}"
-
-    # Generate the first response using the large language model
+        return {"error": f"Error retrieving prompt: {e}"}
+    
     first_response = get_response(prompt_generate)
-    # print(f"First model response:\n{first_response}\n")
-
-    # --------------------------------------------------------------------------------
-    # E) Prompt 2: 'REPLACE_RESPONSE'
-    # Incorporate the first response and the user's learned Vocabulary/Grammar titles.
-    # --------------------------------------------------------------------------------
+    
+    # Generate final response
     try:
         prompt_replace = get_prompt(
             identifier="REPLACE_RESPONSE",
@@ -75,32 +115,46 @@ def learning_chat(user_input: str, email: str, situation: str) -> str:
             }
         )
     except ValueError as e:
-        return f"Error retrieving prompt: {e}"
-
+        return {"error": f"Error retrieving prompt: {e}"}
+    
     final_response = get_response(prompt_replace)
-    print(f"Final model response:\n{prompt_replace}\n")
-
-    # --------------------------------------------------------------------------------
-    # F) (Optional) Update chat history with the new conversation data.
-    # --------------------------------------------------------------------------------
-    # We could, for example, append these messages to the existing history.
+    print(f"Final model response: {final_response}")
+    
+    # Analyze message content
+    user_analysis = analyze_message_content(user_input)
+    ai_analysis = analyze_message_content(final_response)
+    
+    # Update chat history
     new_messages = chat_history + [
-        {"message": user_input, "source": "user"},
-        {"message": final_response, "source": "ai"}
+        {
+            "message": user_input, 
+            "source": "user",
+            "grammar": user_analysis.get("grammar", {}),
+            "vocabulary": user_analysis.get("vocabulary", {})
+        },
+        {
+            "message": final_response, 
+            "source": "ai",
+            "grammar": ai_analysis.get("grammar", {}),
+            "vocabulary": ai_analysis.get("vocabulary", {})
+        }
     ]
     update_chat_history(email, new_messages)
-
-    # Return the final response from the second prompt
-    return final_response
+    
+    return {
+        "response": final_response,
+        "user_analysis": user_analysis,
+        "ai_analysis": ai_analysis
+    }
 
 # --------------------------------------------------------------------------------
-# H) Command-Line Usage Example
+# Command-Line Usage Example
 # --------------------------------------------------------------------------------
 if __name__ == "__main__":
     test_user_input = "How do I form the perfect tense in German?"
     test_email = "test_user@gmail.com"
     test_situation = "Learning basic German grammar"
 
-    result = learning_chat(user_input=test_user_input, email=test_email, situation=test_situation)
-    print("\n----- End of learning_chat script -----")
+    result = learning_chat_with_analysis(user_input=test_user_input, email=test_email, situation=test_situation)
+    print("\n----- End of learning_chat_with_analysis script -----")
     print(f"Final output:\n{result}")

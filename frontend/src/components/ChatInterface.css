@@ -41,6 +41,130 @@ html, body {
     text-align: left; /* Default left alignment */
   }
   
+  .message-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+  }
+  
+  .message-text {
+    flex: 1;
+  }
+  
+  .expand-icon {
+    cursor: pointer;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.5);
+    user-select: none;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    line-height: 1;
+    padding: 4px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 12px;
+    transform: rotate(90deg);
+    font-weight: 600;
+  }
+  
+  .expand-icon:hover {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .expand-icon.expanded {
+    transform: rotate(-90deg);
+  }
+  
+  .ai-message .expand-icon {
+    color: rgba(26, 26, 26, 0.5);
+  }
+  
+  .ai-message .expand-icon:hover {
+    color: rgba(26, 26, 26, 0.8);
+  }
+  
+  .expand-icon.left {
+    order: -1;
+  }
+  
+  .expand-icon.right {
+    order: 1;
+  }
+  
+  .expanded-content {
+    margin-top: 8px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 12px;
+    overflow: hidden;
+    animation: expandContent 0.3s ease-out;
+    transform-origin: top;
+  }
+  
+  .expanded-content.closing {
+    animation: collapseContent 0.3s ease-out forwards;
+  }
+  
+  .user-message .expanded-content {
+    background: rgba(38, 105, 193, 0.9);
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .ai-message .expanded-content {
+    background: rgba(202, 202, 202, 0.9);
+    color: rgba(26, 26, 26, 0.8);
+  }
+  
+  .vocabulary-section {
+    margin-bottom: 12px;
+  }
+  
+  .vocabulary-section strong {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+  }
+  
+  .vocabulary-items {
+    margin-left: 8px;
+  }
+  
+  .vocabulary-item {
+    margin-bottom: 4px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  
+  .grammar-section {
+    margin-bottom: 12px;
+  }
+  
+  .grammar-section strong {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+  }
+  
+  .grammar-items {
+    margin-left: 8px;
+  }
+  
+  .grammar-item {
+    margin-bottom: 4px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  
+  .no-content {
+    font-style: italic;
+    opacity: 0.7;
+    font-size: 12px;
+  }
+  
   .user-message {
     background: rgba(79, 140, 247, 0.8);
     color: white;
@@ -159,10 +283,11 @@ html, body {
     animation: slideDown 0.2s ease-out forwards;
   }
   
+  /* Update the keyframes for smoother transitions */
   @keyframes slideUp {
     from {
       opacity: 0;
-      transform: translate(-50%, 5px);
+      transform: translate(-50%, 10px); /* Start from 10px below instead of 5px */
     }
     to {
       opacity: 1;
@@ -177,8 +302,78 @@ html, body {
     }
     to {
       opacity: 0;
-      transform: translate(-50%, 5px);
+      transform: translate(-50%, 10px);
     }
+  }
+  
+  /* Update the suggestions container for smoother appearance */
+  .suggestions-container {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px;
+    display: flex;
+    flex-direction: row; /* Horizontal layout */
+    justify-content: center; /* Center the items horizontally */
+    align-items: center; /* Center the items vertically */
+    gap: 8px;
+    width: auto;
+    max-width: 90%;
+    z-index: 10;
+    opacity: 0; /* Start invisible */
+    animation: fadeInUp 0.4s ease-out forwards; /* Use a single animation for the container */
+  }
+  
+  /* New animation for the container to appear as a unit */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate(-50%, 10px);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
+  
+  .suggestions-container.exiting {
+    opacity: 1;
+    animation: fadeOutDown 0.3s ease-out forwards;
+  }
+  
+  @keyframes fadeOutDown {
+    from {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+    to {
+      opacity: 0;
+      transform: translate(-50%, 10px);
+    }
+  }
+  
+  /* Remove individual animations from suggestion items */
+  .suggestion-item {
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: rgba(79, 140, 247, 0.9); /* Blue background like the original */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    font-size: 14px;
+    white-space: nowrap;
+    text-align: center; /* Center the text inside each item */
+  }
+  
+  .suggestion-item:hover {
+    background-color: rgba(79, 140, 247, 1); /* Slightly darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+  }
+  
+  .suggestion-item:active {
+    background-color: rgba(60, 120, 220, 0.9); /* Even darker when clicked */
+    transform: translateY(0); /* Return to original position when clicked */
   }
   
   /* "Match Found" overlay - shows up in green, then fades out */
@@ -247,5 +442,39 @@ html, body {
   
   .font-size-btn:active {
     transform: scale(0.95);
+  }
+  
+  @keyframes expandContent {
+    from {
+      opacity: 0;
+      max-height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-top: 0;
+    }
+    to {
+      opacity: 1;
+      max-height: 200px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      margin-top: 8px;
+    }
+  }
+  
+  @keyframes collapseContent {
+    from {
+      opacity: 1;
+      max-height: 200px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      margin-top: 8px;
+    }
+    to {
+      opacity: 0;
+      max-height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-top: 0;
+    }
   }
   

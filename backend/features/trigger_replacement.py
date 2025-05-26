@@ -76,7 +76,6 @@ def create_card_for_replacement(trigger_replacement_str: str, email: str) -> str
 
     # Generate the flashcard JSON using the large language model
     card_json_response = get_response(prompt_generate)
-    print(f"LLM JSON response:\n{card_json_response}\n")
 
     # Remove markdown backticks and language annotations if present
     card_json_response = re.sub(r'^```json', '', card_json_response.strip())

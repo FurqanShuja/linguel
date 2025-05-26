@@ -202,13 +202,6 @@ function LandingPage() {
 
   return (
     <div ref={targetRef} className="landing-container">
-      <div className="logo-container-landing">
-        <img 
-          src={logo} 
-          alt="Langey Logo" 
-          className="hero-logo"
-        />
-      </div>
       <motion.div className="grid-background"
         style={{
           background: `
@@ -244,6 +237,13 @@ function LandingPage() {
       <div className="content">
         <section className="hero-section">
           <div className="hero-content">
+            <div className="logo-container-hero">
+              <img 
+                src={logo} 
+                alt="Langey Logo" 
+                className="hero-logo"
+              />
+            </div>
             <h1 className="hero-title">
               <span className="ai-text">
                 <TypeWriter text="Learn German with Langey" delay={50} />

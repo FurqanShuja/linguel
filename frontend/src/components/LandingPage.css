@@ -8,6 +8,8 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+  padding: 0;
+  margin: 0;
 }
 
 .grid-background {
@@ -43,17 +45,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0;
+  margin: 0;
 }
 
 /* Hero Section */
 .hero-section {
-  min-height: 60vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 3rem 1rem;
+  padding: 2rem 1rem;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .hero-content {
@@ -61,6 +66,22 @@
   max-width: 90%;
   width: 48rem;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-container-hero {
+  margin-bottom: 0.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-logo {
+  width: 200px;
+  height: auto;
+  display: block;
 }
 
 .hero-title {
@@ -72,6 +93,8 @@
   justify-content: center;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
+  text-align: center;
+  width: 100%;
 }
 
 .brand-name {
@@ -97,6 +120,8 @@
   color: rgba(255, 255, 255, 0.7);
   max-width: 36rem;
   margin: 0 auto 2rem;
+  text-align: center;
+  line-height: 1.6;
 }
 
 .hero-buttons {
@@ -475,38 +500,70 @@
   font-size: 0.875rem;
 }
 
-.logo-container-landing {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 100;
-}
-
-.hero-logo {
-  width: 100px;
-  height: auto;
-}
-
 /* Mobile Responsive Adjustments */
 @media (max-width: 768px) {
+  .landing-container {
+    padding: 0;
+    margin: 0;
+  }
+
+  .content {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .hero-section {
+    min-height: 100vh;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
   .hero-content {
     max-width: 100%;
     padding: 0;
     margin: 0 auto;
+    width: 100%;
+  }
+
+  .logo-container-hero {
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-logo {
+    width: 80px;
   }
 
   .hero-title {
     font-size: clamp(1.5rem, 4vw, 2.5rem);
     flex-direction: column;
     gap: 0.25rem;
-    padding: 0 1rem;
+    padding: 0;
+    margin-bottom: 1rem;
+    width: 100%;
   }
 
   .hero-description {
     font-size: clamp(0.875rem, 1.5vw, 1rem);
     padding: 0;
     margin: 0 auto 2rem;
-    width: 90%;
+    width: 100%;
+    max-width: 90%;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 90%;
+    padding: 0;
+    margin: 2rem auto 0;
+  }
+
+  .login-button, .signup-button {
+    width: 100%;
+    min-width: unset;
+    margin: 0;
   }
 
   .pricing-grid {
@@ -528,18 +585,6 @@
     padding: 0;
     width: 90%;
     margin: 0 auto;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    width: 90%;
-    padding: 0;
-    margin: 2rem auto 0;
-  }
-
-  .login-button, .signup-button {
-    width: 100%;
-    min-width: unset;
   }
 
   .section-content {
@@ -567,13 +612,43 @@
 
 @media (max-width: 480px) {
   .hero-section {
-    padding: 2rem 0;
+    padding: 1rem 0.5rem;
+    min-height: 100vh;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .logo-container-hero {
+    margin-bottom: 1rem;
+  }
+
+  .hero-logo {
+    width: 70px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.25rem, 5vw, 2rem);
+    margin-bottom: 1rem;
+  }
+
+  .hero-description {
+    font-size: clamp(0.875rem, 3vw, 1rem);
+    width: 95%;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-buttons {
+    width: 95%;
+    gap: 1rem;
   }
 
   .stats-section,
   .how-it-works-section,
   .pricing-section {
-    padding: 2rem 0;
+    padding: 2rem 0.5rem;
   }
 
   .step-card {
@@ -582,5 +657,15 @@
 
   .pricing-card {
     padding: 1rem;
+  }
+
+  .section-content {
+    width: 95%;
+  }
+
+  .stats-grid,
+  .steps-grid,
+  .pricing-grid {
+    width: 100%;
   }
 }

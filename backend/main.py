@@ -10,7 +10,7 @@ from schemas import (
 
 # Import your business logic functions
 from data import get_chat_history, add_learned_data, get_authentication
-from features import get_response, learning_chat, new_card, update_card, trigger_replacement, create_card_for_replacement
+from features import get_response, new_card, update_card, trigger_replacement, create_card_for_replacement, learning_chat_with_analysis
 
 app = FastAPI()
 
@@ -35,14 +35,14 @@ def endpoint_authenticate(email: str):
     except ValueError as e:
         return {"error": str(e)}
 
-@app.post("/learning_chat")
-def endpoint_learning_chat(request: LearningChatRequest):
+@app.post("/learning_chat_with_analysis")
+def endpoint_learning_chat_with_analysis(request: LearningChatRequest):
     """
-    Endpoint for performing the learning_chat sequence.
-    Calls the 'learning_chat' function directly.
+    Endpoint for performing the learning_chat sequence with analysis.
+    Returns both the response and analysis data for immediate display.
     """
-    result = learning_chat(user_input=request.user_input, email=request.email, situation=request.situation)
-    return {"result": result}
+    result = learning_chat_with_analysis(user_input=request.user_input, email=request.email, situation=request.situation)
+    return result
 
 @app.post("/trigger_replacement")
 def endpoint_trigger_replacement(request: TriggerReplacementRequest):
