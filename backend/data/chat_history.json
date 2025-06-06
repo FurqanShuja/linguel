@@ -508,6 +508,103 @@
                 "Ihnen": "you (formal)",
                 "bringen": "to bring"
             }
+        },
+        {
+            "message": "hello how are you",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "I'm doing well, thank you! Was kann Ich get for you today?\n",
+            "source": "ai",
+            "grammar": {
+                "Kann Ich": "Can I (inverted order)"
+            },
+            "vocabulary": {
+                "was": "what",
+                "get": "get"
+            }
+        },
+        {
+            "message": "hello how are you",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "I'm doing well, thank you! Was kann I get für you zu drink or eat?\n",
+            "source": "ai",
+            "grammar": {
+                "Was kann": "What can",
+                "für you zu drink": "for you to drink"
+            },
+            "vocabulary": {
+                "zu": "to"
+            }
+        },
+        {
+            "message": "hello how are you",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "I'm good, thank you! Was gibt can I get for you today?\n",
+            "source": "ai",
+            "grammar": {
+                "Was gibt": "What is there"
+            },
+            "vocabulary": {
+                "Was gibt": "What is there"
+            }
+        },
+        {
+            "message": "hello how are you",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "I'm doing well, thank you! Was kann Ich get for you today?\n",
+            "source": "ai",
+            "grammar": {
+                "Was kann Ich get": "Incorrect German"
+            },
+            "vocabulary": {}
+        },
+        {
+            "message": "hello how are you",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "I'm doing well, thank you! Ready zu hear über our specials or take your order?\n",
+            "source": "ai",
+            "grammar": {
+                "zu hear": "to hear (incorrect use)"
+            },
+            "vocabulary": {
+                "über": "about"
+            }
+        },
+        {
+            "message": "hello how are you",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "I'm good, thank you! Was gibt can I get for you today?\n",
+            "source": "ai",
+            "grammar": {
+                "Was gibt": "What is there?"
+            },
+            "vocabulary": {
+                "Was": "what",
+                "gibt": "gives/there is"
+            }
         }
     ]
 }

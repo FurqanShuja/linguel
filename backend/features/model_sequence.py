@@ -23,7 +23,7 @@ api_keys = [
 ]
 
 # Global rate limit configuration (maximum requests per minute per API key)
-max_req_per_minute = 10  # Change this value as needed
+max_req_per_minute = 15  # Change this value as needed
 
 # Dictionary to track usage for each API key.
 # Each entry holds the count and the reset time (in epoch seconds).
@@ -69,6 +69,8 @@ def get_response(user_input):
         if usage_stats[idx]["count"] < max_req_per_minute:
             # Configure the API client with the selected key
             genai.configure(api_key=api_key)
+            
+            print(f"Using API key {idx + 1}")
             
             # Create the model and chat session using the current key
             model = genai.GenerativeModel(
