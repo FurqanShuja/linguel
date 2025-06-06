@@ -148,6 +148,16 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({ scenarioContext })
   const handleSendMessage = async () => {
     if (!inputMessage.trim()) return;
     
+    // --- Start of new code ---
+    if (suggestions.length > 0) {
+      setIsExiting(true);
+      // Wait for the exit animation to complete before clearing suggestions
+      await new Promise(resolve => setTimeout(resolve, 300)); 
+      setSuggestions([]);
+      setIsExiting(false);
+    }
+    // --- End of new code ---
+    
     const newMessage: Message = {
       id: Date.now().toString(),
       content: inputMessage,

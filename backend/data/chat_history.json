@@ -1,111 +1,50 @@
 {
     "ankit@gmail.com": [
         {
-            "message": "Hallo whats up",
+            "message": "Hey bro I want to get a coffee",
             "source": "user",
             "grammar": {},
-            "vocabulary": {
-                "Hallo": "Hello"
-            }
-        },
-        {
-            "message": "Hi there! Just ready to take your drink and food bestellen whenever Sie are.\n",
-            "source": "ai",
-            "grammar": {
-                "Sie are": "Formal you are"
-            },
-            "vocabulary": {
-                "bestellen": "to order"
-            }
-        },
-        {
-            "message": "yes I am bereit",
-            "source": "user",
-            "grammar": {
-                "bereit": "Ready (adjective)"
-            },
-            "vocabulary": {
-                "bereit": "ready"
-            }
-        },
-        {
-            "message": "Great! Was kann ich für dich zu trinken or eat?\n",
-            "source": "ai",
-            "grammar": {
-                "Was kann ich": "What can I",
-                "für dich": "for you"
-            },
-            "vocabulary": {
-                "trinken": "to drink",
-                "eat": "eat",
-                "zu": "to"
-            }
-        },
-        {
-            "message": "do you have Hackbraten?",
-            "source": "user",
-            "grammar": {},
-            "vocabulary": {
-                "Hackbraten": "meatloaf"
-            }
-        },
-        {
-            "message": "I'm sorry, we don't have Hackbraten heute. Kann ich Ihnen etwas else?\n",
-            "source": "ai",
-            "grammar": {
-                "Kann ich": "Can I"
-            },
-            "vocabulary": {
-                "Hackbraten": "Meatloaf",
-                "heute": "today",
-                "Ihnen": "you (formal)",
-                "etwas": "something",
-                "else": "else"
-            }
-        },
-        {
-            "message": "ich bin asshole",
-            "source": "user",
-            "grammar": {
-                "ich bin": "I am (present tense)"
-            },
             "vocabulary": {}
         },
         {
-            "message": "I'm sorry, I don't understand. Kann ich Ihnen helfen with your order?\n",
+            "message": "Alright! What kind of coffee would you like today?\n",
             "source": "ai",
-            "grammar": {
-                "Kann ich": "Can I"
-            },
-            "vocabulary": {
-                "Ihnen": "you (formal)",
-                "helfen": "help"
-            }
+            "grammar": {},
+            "vocabulary": {}
         },
         {
-            "message": "I möchte kaufen a cup of coffee",
+            "message": "Ich möchte a cappuccino",
             "source": "user",
             "grammar": {
                 "Ich möchte": "I would like"
             },
-            "vocabulary": {
-                "kaufen": "to buy"
-            }
+            "vocabulary": {}
         },
         {
-            "message": "Certainly! I kann get Sie a cup of Kaffee. Was kind would dich Lust auf?\n",
+            "message": "Okay, one cappuccino. Anything else for you right now?\n",
             "source": "ai",
-            "grammar": {
-                "kann get": "can get (incorrect)",
-                "dich Lust auf": "you desire (incorrect)"
-            },
+            "grammar": {},
             "vocabulary": {
-                "Kaffee": "coffee",
-                "Was kind": "what kind"
+                "Cappuccino": "cappuccino"
             }
         },
         {
-            "message": "hello brother whats up",
+            "message": "Hey mein Bruder",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {
+                "mein": "my",
+                "Bruder": "brother"
+            }
+        },
+        {
+            "message": "Hey! What can I get for you to drink or eat?\n",
+            "source": "ai",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "call me a brother",
             "source": "user",
             "grammar": {},
             "vocabulary": {
@@ -113,15 +52,461 @@
             }
         },
         {
-            "message": "Hallo! Nicht viel, Was darf es sein heute?\n",
+            "message": "Alright brother, what can I get for you today?\n",
             "source": "ai",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "call me a brother",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {
+                "Bruder": "brother"
+            }
+        },
+        {
+            "message": "Alright, brother! What can I get for you today?\n",
+            "source": "ai",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "call me my brother",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {
+                "my": "mein"
+            }
+        },
+        {
+            "message": "Alright, \"brother,\" what can I get for you to drink or eat?\n",
+            "source": "ai",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "I want a Kaffee",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {
+                "Kaffee": "coffee"
+            }
+        },
+        {
+            "message": "Okay, one Kaffee. Anything else for you at the moment?\n",
+            "source": "ai",
+            "grammar": {},
+            "vocabulary": {
+                "Kaffee": "coffee"
+            }
+        },
+        {
+            "message": "A Getränk would be really nice for me",
+            "source": "user",
             "grammar": {
-                "Was darf es sein": "What may it be"
+                "would be": "Konjunktiv II form",
+                "für mich": "for me"
             },
             "vocabulary": {
-                "Hallo": "Hello",
-                "Nicht viel": "Not much",
+                "Getränk": "drink",
+                "nice": "nett/schön (implied)"
+            }
+        },
+        {
+            "message": "Certainly! What kind of Getränk are you in the mood for today?\n",
+            "source": "ai",
+            "grammar": {},
+            "vocabulary": {
+                "Getränk": "drink"
+            }
+        },
+        {
+            "message": "I möchte ein Wasser bitte. ",
+            "source": "user",
+            "grammar": {
+                "Ich möchte": "I would like"
+            },
+            "vocabulary": {
+                "ein": "a",
+                "Wasser": "water",
+                "bitte": "please"
+            }
+        },
+        {
+            "message": "Certainly. Ein Wasser coming right up! Anything else for you?\n",
+            "source": "ai",
+            "grammar": {},
+            "vocabulary": {
+                "Ein": "A",
+                "Wasser": "Water"
+            }
+        },
+        {
+            "message": "hi",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "Hi! Welcome to our cafe. What can I get for you?\n",
+            "source": "ai",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "Hello brother",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "Hello! What can I get for you?",
+            "source": "ai",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "Hallo brother",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {
+                "Hallo": "hello"
+            }
+        },
+        {
+            "message": "Hallo! What can I get for you?",
+            "source": "ai",
+            "grammar": {},
+            "vocabulary": {
+                "Hallo": "Hello"
+            }
+        },
+        {
+            "message": "call me my brother exact",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "Okay, uh, alright. What can I get for you, sir?",
+            "source": "ai",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "call me brother",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "I'm sorry, sir/madam. I need to keep things professional here..",
+            "source": "ai",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "hello Wie are you",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {
+                "Wie": "how"
+            }
+        },
+        {
+            "message": "Hallo! Good, thanks. Ready to talk travel plans?",
+            "source": "ai",
+            "grammar": {},
+            "vocabulary": {
+                "Hallo": "Hello"
+            }
+        },
+        {
+            "message": "hello how are you denken?",
+            "source": "user",
+            "grammar": {
+                "denken?": "to think (question)"
+            },
+            "vocabulary": {
+                "denken": "to think"
+            }
+        },
+        {
+            "message": "Hello! I'm bin well, thank you. What can I get for you today?\n",
+            "source": "ai",
+            "grammar": {
+                "bin": "I am (present tense)"
+            },
+            "vocabulary": {
+                "bin": "am"
+            }
+        },
+        {
+            "message": "Can you get me a Frau",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {
+                "Frau": "woman, Mrs."
+            }
+        },
+        {
+            "message": "Certainly! I'll be happy to get you a Frau. Anything else for you?\n",
+            "source": "ai",
+            "grammar": {},
+            "vocabulary": {
+                "Frau": "woman/Mrs."
+            }
+        },
+        {
+            "message": "Can I get her Tochter too",
+            "source": "user",
+            "grammar": {
+                "Kann ich": "Can I"
+            },
+            "vocabulary": {
+                "Tochter": "daughter"
+            }
+        },
+        {
+            "message": "Certainly! Just to confirm, is that a \"Frau\" you'd like to order for?\n",
+            "source": "ai",
+            "grammar": {},
+            "vocabulary": {
+                "Frau": "Mrs./Ms."
+            }
+        },
+        {
+            "message": "Yes I would to bestellen for her",
+            "source": "user",
+            "grammar": {
+                "bestellen": "to order (infinitive)"
+            },
+            "vocabulary": {
+                "bestellen": "order"
+            }
+        },
+        {
+            "message": "Certainly! And for you? What would you like to bestellen for yourself?\n",
+            "source": "ai",
+            "grammar": {
+                "bestellen": "to order (infinitive)"
+            },
+            "vocabulary": {
+                "bestellen": "to order"
+            }
+        },
+        {
+            "message": "I would like a bmw car",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "I'm sorry, we don't serve cars here. Perhaps I can get you a drink?\n",
+            "source": "ai",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "I will zu sprechen zu you über my Freundin",
+            "source": "user",
+            "grammar": {
+                "zu": "to (preposition)",
+                "sprechen zu": "to speak to"
+            },
+            "vocabulary": {
+                "sprechen": "speak",
+                "über": "about",
+                "Freundin": "girlfriend"
+            }
+        },
+        {
+            "message": "I'm sorry, I don't understand. Could you please repeat your order?\n",
+            "source": "ai",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "can you say the word friend",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "Certainly! Friend. What can I get for you today?\n",
+            "source": "ai",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "Okay nice",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "Great! What can I get for you to drink and eat today?\n",
+            "source": "ai",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "something nice",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "Certainly! What kind of \"Getränk\" are we denken today? Kaffee, tea, or something else?\n",
+            "source": "ai",
+            "grammar": {
+                "are": "are (present tense)",
+                "denken": "we think (present tense)"
+            },
+            "vocabulary": {
+                "Getränk": "drink",
+                "Kaffee": "coffee",
+                "tea": "tea"
+            }
+        },
+        {
+            "message": "call me Kamerad",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {
+                "Kamerad": "comrade"
+            }
+        },
+        {
+            "message": "Alright Kamerad, was kann ich get for you zu drink or eat?\n",
+            "source": "ai",
+            "grammar": {
+                "was kann ich": "what can I",
+                "zu drink": "to drink (incorrect)",
+                "zu eat": "to eat (incorrect)"
+            },
+            "vocabulary": {
+                "Kamerad": "comrade",
+                "get": "get (English)",
+                "for": "for (English)"
+            }
+        },
+        {
+            "message": "nenn me brother",
+            "source": "user",
+            "grammar": {
+                "nenn me": "incorrect German"
+            },
+            "vocabulary": {
+                "nenn": "call/name"
+            }
+        },
+        {
+            "message": "Okay, what would your Bruder like zu order?\n",
+            "source": "ai",
+            "grammar": {
+                "zu order": "to order (infinitive)"
+            },
+            "vocabulary": {
+                "Bruder": "brother"
+            }
+        },
+        {
+            "message": "call me brother",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {
+                "Bruder": "brother"
+            }
+        },
+        {
+            "message": "Alright, Bruder. What kann ich get für you heute?\n",
+            "source": "ai",
+            "grammar": {
+                "kann ich": "can I"
+            },
+            "vocabulary": {
+                "Bruder": "brother",
+                "kann": "can",
+                "get": "get",
+                "für": "for",
                 "heute": "today"
+            }
+        },
+        {
+            "message": "hello how are you? ",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "I'm doing well, thank you! What can I get für Sie heute?\n",
+            "source": "ai",
+            "grammar": {},
+            "vocabulary": {
+                "für": "for",
+                "Sie": "you (formal)",
+                "heute": "today"
+            }
+        },
+        {
+            "message": "hello how are you?",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "I'm doing well, thank you! What can I get für Sie heute?\n",
+            "source": "ai",
+            "grammar": {
+                "für Sie": "for you"
+            },
+            "vocabulary": {
+                "für": "for",
+                "Sie": "you (formal)",
+                "heute": "today"
+            }
+        },
+        {
+            "message": "hallo no replacement posibble",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {
+                "hallo": "hello",
+                "posibble": "possible (misspelled 'possible')"
+            }
+        },
+        {
+            "message": "I'm sorry, I don't understand. Could you please rephrase your question?\n",
+            "source": "ai",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "hallo wie gehts",
+            "source": "user",
+            "grammar": {
+                "wie gehts": "how are you (short)"
+            },
+            "vocabulary": {
+                "hallo": "hello"
+            }
+        },
+        {
+            "message": "Mir geht es gut, danke! Was darf ich Ihnen bringen?\n",
+            "source": "ai",
+            "grammar": {
+                "geht es": "is going (it)",
+                "darf ich": "may I"
+            },
+            "vocabulary": {
+                "Mir": "me",
+                "gut": "good",
+                "danke": "thanks",
+                "Was": "What",
+                "Ihnen": "you (formal)",
+                "bringen": "to bring"
             }
         }
     ]

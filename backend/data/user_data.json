@@ -6,376 +6,97 @@
             "description": "Brother",
             "question": "He is my brother.",
             "answer": "Er ist mein Bruder.",
-            "available_timedate": "2025-05-29 09:03:46",
-            "visit_count": 5
+            "available_timedate": "2025-06-05 12:28:47",
+            "visit_count": 6
+        },
+        {
+            "type": "Grammar",
+            "title": "Verb Conjugation (möchte)",
+            "description": "German for 'I would like'.",
+            "question": "I want a coffee.",
+            "answer": "Ich möchte einen Kaffee.",
+            "available_timedate": "2025-06-05 23:37:36",
+            "visit_count": 2
+        },
+        {
+            "type": "Vocabulary",
+            "title": "mein Bruder",
+            "description": "My brother",
+            "question": "I saw my brother yesterday.",
+            "answer": "Ich habe mein Bruder gestern gesehen.",
+            "available_timedate": "2025-06-05 06:44:16",
+            "visit_count": 1
         },
         {
             "type": "Vocabulary",
             "title": "Kaffee",
-            "description": "Coffee",
-            "question": "I need a cup of coffee to wake up.",
-            "answer": "I need a cup of Kaffee to wake up.",
-            "available_timedate": "2025-05-26 07:43:46",
-            "visit_count": 6
-        },
-        {
-            "type": "Vocabulary",
-            "title": "Milch",
-            "description": "milk",
-            "question": "I drink milk every morning.",
-            "answer": "I drink Milch every morning.",
-            "available_timedate": "2025-05-28 09:53:38",
-            "visit_count": 4
-        },
-        {
-            "type": "Vocabulary",
-            "title": "Flasche",
-            "description": "Bottle",
-            "question": "I need a bottle of water.",
-            "answer": "Ich brauche eine Flasche Wasser.",
-            "available_timedate": "2025-05-27 17:13:38",
-            "visit_count": 3
-        },
-        {
-            "type": "Vocabulary",
-            "title": "möchte",
-            "description": "want",
-            "question": "I want an apple.",
-            "answer": "Ich möchte einen Apfel.",
-            "available_timedate": "2025-05-27 17:13:39",
-            "visit_count": 3
-        },
-        {
-            "type": "Vocabulary",
-            "title": "Ich",
-            "description": "I",
-            "question": "I am going to the store.",
-            "answer": "Ich am going to the store.",
-            "available_timedate": "2025-05-27 17:13:39",
-            "visit_count": 3
-        },
-        {
-            "type": "Vocabulary",
-            "title": "von",
-            "description": "of",
-            "question": "The book is of my friend.",
-            "answer": "Das Buch ist von meinem Freund.",
-            "available_timedate": "2025-05-27 17:13:39",
-            "visit_count": 3
-        },
-        {
-            "type": "Vocabulary",
-            "title": "eine Flasche",
-            "description": "a bottle",
-            "question": "I need a Flasche of water.",
-            "answer": "I need eine Flasche of water.",
-            "available_timedate": "2025-05-27 00:33:40",
-            "visit_count": 2
-        },
-        {
-            "type": "Vocabulary",
-            "title": "eine Flasche Milch",
-            "description": "A bottle of milk",
-            "question": "I bought a bottle of milk.",
-            "answer": "Ich habe eine Flasche Milch gekauft.",
-            "available_timedate": "2025-05-27 00:33:40",
-            "visit_count": 2
-        },
-        {
-            "type": "Vocabulary",
-            "title": "Auch",
-            "description": "Also",
-            "question": "I want to go also.",
-            "answer": "Ich will auch gehen.",
-            "available_timedate": "2025-05-27 00:33:41",
-            "visit_count": 2
-        },
-        {
-            "type": "Vocabulary",
-            "title": "Mir",
-            "description": "Me (dative/accusative)",
-            "question": "He gave the book to I.",
-            "answer": "He gave the book to Mir.",
-            "available_timedate": "2025-05-27 00:33:41",
-            "visit_count": 2
-        },
-        {
-            "type": "Grammar",
-            "title": "Grammar Addition (möchte auch)",
-            "description": "Adds emphasis, meaning 'would also like'.",
-            "question": "I would like an apple.",
-            "answer": "Ich möchte auch einen Apfel.",
-            "available_timedate": "2025-05-27 00:33:47",
-            "visit_count": 2
-        },
-        {
-            "type": "Grammar",
-            "title": "Subject-Verb Agreement (Ich möchte)",
-            "description": "Correct subject-verb agreement for 'I would like'.",
-            "question": "To me also would like a coffee.",
-            "answer": "I would also like a coffee.",
-            "available_timedate": "2025-05-27 00:33:49",
-            "visit_count": 2
-        },
-        {
-            "type": "Vocabulary",
-            "title": "ein Auto",
-            "description": "a car",
-            "question": "I have a car.",
-            "answer": "Ich habe ein Auto.",
-            "available_timedate": "2025-05-25 21:53:49",
+            "description": "coffee",
+            "question": "I like to drink coffee in the morning.",
+            "answer": "I like to drink Kaffee in the morning.",
+            "available_timedate": "2025-06-05 06:44:19",
             "visit_count": 1
         },
         {
             "type": "Vocabulary",
-            "title": "die Speisekarte",
-            "description": "The menu",
-            "question": "Can I see the menu, please?",
-            "answer": "Kann ich die Speisekarte sehen, bitte?",
-            "available_timedate": "2025-05-25 23:23:50",
+            "title": "Getränk",
+            "description": "Drink",
+            "question": "I would like a drink.",
+            "answer": "Ich möchte ein Getränk.",
+            "available_timedate": "2025-06-05 06:57:37",
             "visit_count": 1
         },
         {
             "type": "Vocabulary",
-            "title": "Tee",
-            "description": "Tee (tea)",
-            "question": "I don't give a fuck.",
-            "answer": "I don't give a Tee.",
-            "available_timedate": "2025-05-25 21:53:52",
+            "title": "Limo",
+            "description": "Soda",
+            "question": "I'd like a cola, please.",
+            "answer": "I'd like a Limo, please.",
+            "available_timedate": "2025-06-05 06:57:38",
             "visit_count": 1
         },
         {
             "type": "Vocabulary",
-            "title": "in Ordnung",
-            "description": "Okay",
-            "question": "Is everything okay?",
-            "answer": "Ist alles in Ordnung?",
-            "available_timedate": "2025-05-04 18:54:53",
-            "visit_count": 0
-        },
-        {
-            "type": "Vocabulary",
-            "title": "Nein",
-            "description": "Nope",
-            "question": "Are you going to the party? Nope.",
-            "answer": "Are you going to the party? Nein.",
-            "available_timedate": "2025-05-04 18:55:30",
-            "visit_count": 0
-        },
-        {
-            "type": "Vocabulary",
-            "title": "Sie",
-            "description": "You (formal)",
-            "question": "Are you going to the store?",
-            "answer": "Gehen Sie zum Laden?",
-            "available_timedate": "2025-05-25 14:18:31",
-            "visit_count": 0
-        },
-        {
-            "type": "Vocabulary",
-            "title": "langes Leben",
-            "description": "A very long life",
-            "question": "She lived a very long life.",
-            "answer": "Sie lebte ein langes Leben.",
-            "available_timedate": "2025-05-25 14:42:21",
-            "visit_count": 0
-        },
-        {
-            "type": "Vocabulary",
-            "title": "leben",
-            "description": "to live",
-            "question": "I want to live a good life.",
-            "answer": "Ich will ein gutes Leben leben.",
-            "available_timedate": "2025-05-25 14:42:25",
-            "visit_count": 0
-        },
-        {
-            "type": "Vocabulary",
-            "title": "Das Land",
-            "description": "Country",
-            "question": "I want to visit a different country this year.",
-            "answer": "I want to visit a different Das Land this year.",
-            "available_timedate": "2025-05-25 14:43:54",
-            "visit_count": 0
+            "title": "Bitte",
+            "description": "Please",
+            "question": "Can you please help me?",
+            "answer": "Kannst du mir bitte helfen?",
+            "available_timedate": "2025-06-05 06:57:39",
+            "visit_count": 1
         },
         {
             "type": "Grammar",
-            "title": "Verb Conjugation (ist)",
-            "description": "Is (3rd person singular present tense of 'sein').",
-            "question": "He is my friend.",
-            "answer": "Er ist mein Freund.",
-            "available_timedate": "2025-05-25 14:44:01",
-            "visit_count": 0
+            "title": "Modal Verb (möchte)",
+            "description": "Would like, expressing a wish or polite request.",
+            "question": "I would like to order a coffee.",
+            "answer": "Ich möchte einen Kaffee bestellen.",
+            "available_timedate": "2025-06-05 06:57:40",
+            "visit_count": 1
         },
         {
             "type": "Vocabulary",
-            "title": "Staat",
-            "description": "Land",
-            "question": "The land is beautiful.",
-            "answer": "Der Staat ist wunderschön.",
-            "available_timedate": "2025-05-25 14:45:33",
-            "visit_count": 0
+            "title": "eine",
+            "description": "a",
+            "question": "I have a book.",
+            "answer": "Ich habe eine Buch.",
+            "available_timedate": "2025-06-05 06:57:42",
+            "visit_count": 1
         },
         {
             "type": "Vocabulary",
-            "title": "Möglichkeiten",
-            "description": "Options",
-            "question": "We have several options to consider.",
-            "answer": "Wir haben mehrere Möglichkeiten zu berücksichtigen.",
-            "available_timedate": "2025-05-25 14:48:03",
-            "visit_count": 0
+            "title": "Ein Wasser",
+            "description": "A water",
+            "question": "I'd like a soda, please.",
+            "answer": "I'd like a water, please.",
+            "available_timedate": "2025-06-05 06:57:43",
+            "visit_count": 1
         },
         {
             "type": "Vocabulary",
-            "title": "Wachstum",
-            "description": "growth",
-            "question": "The growth of the company was exponential.",
-            "answer": "Das Wachstum des Unternehmens war exponentiell.",
-            "available_timedate": "2025-05-25 14:48:05",
-            "visit_count": 0
-        },
-        {
-            "type": "Grammar",
-            "title": "Hast du Lust auf",
-            "description": "Are you in the mood for",
-            "question": "Are you in the mood for pizza tonight?",
-            "answer": "Hast du Lust auf Pizza heute Abend?",
-            "available_timedate": "2025-05-25 14:50:12",
-            "visit_count": 0
-        },
-        {
-            "type": "Grammar",
-            "title": "Grammatical Phrase (Fällt dir etwas bestimmtes ins Auge?)",
-            "description": "Does something specific stand out to you?",
-            "question": "Anything specific catch your eye?",
-            "answer": "Fällt dir etwas bestimmtes ins Auge?",
-            "available_timedate": "2025-05-25 15:00:26",
-            "visit_count": 0
-        },
-        {
-            "type": "Vocabulary",
-            "title": "heute",
-            "description": "today",
-            "question": "I am going to the store today.",
-            "answer": "Ich gehe heute zum Laden.",
-            "available_timedate": "2025-05-25 15:01:31",
-            "visit_count": 0
-        },
-        {
-            "type": "Vocabulary",
-            "title": "Lust auf",
-            "description": "In the mood for",
-            "question": "I am in the mood for ice cream.",
-            "answer": "Ich habe Lust auf Eis.",
-            "available_timedate": "2025-05-25 15:01:36",
-            "visit_count": 0
-        },
-        {
-            "type": "Vocabulary",
-            "title": "bestimmtes",
-            "description": "Specific",
-            "question": "I need a specific answer.",
-            "answer": "Ich brauche ein bestimmtes Antwort.",
-            "available_timedate": "2025-05-25 15:01:40",
-            "visit_count": 0
-        },
-        {
-            "type": "Vocabulary",
-            "title": "gefällt dir",
-            "description": "Appeals to you; is pleasing to you",
-            "question": "Does anything here catch your eye?",
-            "answer": "Gefällt dir hier irgendetwas?",
-            "available_timedate": "2025-05-25 15:02:02",
-            "visit_count": 0
-        },
-        {
-            "type": "Grammar",
-            "title": "Helping Verb (kann ich Ihnen helfen)",
-            "description": "Formal way to ask 'how can I help you' in German.",
-            "question": "Grammar: how can I help you",
-            "answer": "Grammar: kann ich Ihnen helfen",
-            "available_timedate": "2025-05-25 15:06:47",
-            "visit_count": 0
-        },
-        {
-            "type": "Vocabulary",
-            "title": "bestellen",
-            "description": "order",
-            "question": "I want to order a pizza.",
-            "answer": "Ich möchte eine Pizza bestellen.",
-            "available_timedate": "2025-05-25 15:07:34",
-            "visit_count": 0
-        },
-        {
-            "type": "Grammar",
-            "title": "Grammar Rule: I want -> Ich hätte gern",
-            "description": "Expressing a polite request or desire.",
-            "question": "I want a coffee.",
-            "answer": "Ich hätte gern einen Kaffee.",
-            "available_timedate": "2025-05-25 15:07:53",
-            "visit_count": 0
-        },
-        {
-            "type": "Vocabulary",
-            "title": "Das Problem",
-            "description": "Problem",
-            "question": "The main issue is a lack of funding.",
-            "answer": "Das Hauptproblem ist ein Mangel an Finanzierung.",
-            "available_timedate": "2025-05-25 15:09:32",
-            "visit_count": 0
-        },
-        {
-            "type": "Vocabulary",
-            "title": "Das Problem",
-            "description": "Problem",
-            "question": "The main issue is the lack of funding.",
-            "answer": "Das Hauptproblem ist der Mangel an Finanzierung.",
-            "available_timedate": "2025-05-25 15:09:39",
-            "visit_count": 0
-        },
-        {
-            "type": "Grammar",
-            "title": "Was ist",
-            "description": "What is",
-            "question": "What's that?",
-            "answer": "Was ist das?",
-            "available_timedate": "2025-05-25 15:09:42",
-            "visit_count": 0
-        },
-        {
-            "type": "Vocabulary",
-            "title": "Frage",
-            "description": "Issue",
-            "question": "The main issue is funding.",
-            "answer": "Die Hauptfrage ist die Finanzierung.",
-            "available_timedate": "2025-05-25 15:09:47",
-            "visit_count": 0
-        },
-        {
-            "type": "Grammar",
-            "title": "Modal Verb Conjugation (kannst)",
-            "description": "Second person singular conjugation of 'können'.",
-            "question": "You can speak German.",
-            "answer": "Du kannst Deutsch sprechen.",
-            "available_timedate": "2025-05-25 15:09:53",
-            "visit_count": 0
-        },
-        {
-            "type": "Vocabulary",
-            "title": "Das Problem",
-            "description": "Problem",
-            "question": "The main issue is funding.",
-            "answer": "Das Hauptproblem ist die Finanzierung.",
-            "available_timedate": "2025-05-25 15:09:57",
-            "visit_count": 0
-        },
-        {
-            "type": "Vocabulary",
-            "title": "Das Problem",
-            "description": "Problem",
-            "question": "The main issue is lack of funding.",
-            "answer": "Das Hauptproblem ist der Mangel an Finanzierung.",
-            "available_timedate": "2025-05-25 15:11:11",
+            "title": "Wasser, bitte",
+            "description": "Water, please",
+            "question": "I want water.",
+            "answer": "Ich möchte Wasser, bitte.",
+            "available_timedate": "2025-06-04 14:03:32",
             "visit_count": 0
         },
         {
@@ -384,160 +105,160 @@
             "description": "Hello",
             "question": "Hello, how are you?",
             "answer": "Hallo, how are you?",
-            "available_timedate": "2025-05-25 15:11:34",
+            "available_timedate": "2025-06-04 14:06:35",
             "visit_count": 0
         },
         {
             "type": "Grammar",
-            "title": "Welcome to -> Willkommen in",
-            "description": "Welcome to.",
-            "question": "Welcome to Germany!",
-            "answer": "Willkommen in Deutschland!",
-            "available_timedate": "2025-05-25 15:11:48",
-            "visit_count": 0
-        },
-        {
-            "type": "Grammar",
-            "title": "Modal Verb Substitution (kannst du)",
-            "description": "Replacing 'can you get' with the German equivalent.",
-            "question": "Can you get me a glass of water?",
-            "answer": "Kannst du mir ein Glas Wasser holen?",
-            "available_timedate": "2025-05-25 15:12:19",
-            "visit_count": 0
-        },
-        {
-            "type": "Grammar",
-            "title": "of course",
-            "description": "Of course in German.",
-            "question": "Of course, I will help you.",
-            "answer": "Aber klar, ich werde dir helfen.",
-            "available_timedate": "2025-05-25 15:12:38",
+            "title": "Phrase for Apology (Es tut mir leid)",
+            "description": "I am sorry",
+            "question": "I am sorry for being late.",
+            "answer": "Es tut mir leid, dass ich zu spät bin.",
+            "available_timedate": "2025-06-04 14:08:46",
             "visit_count": 0
         },
         {
             "type": "Vocabulary",
-            "title": "Ihnen",
-            "description": "You (formal, dative case)",
-            "question": "I gave you the book.",
-            "answer": "Ich habe Ihnen das Buch gegeben.",
-            "available_timedate": "2025-05-25 15:36:32",
+            "title": "Wie",
+            "description": "how",
+            "question": "How are you?",
+            "answer": "Wie geht es dir?",
+            "available_timedate": "2025-06-04 14:09:39",
             "visit_count": 0
         },
         {
             "type": "Vocabulary",
-            "title": "trinken",
-            "description": "drink",
-            "question": "I want to drink some water.",
-            "answer": "Ich möchte etwas Wasser trinken.",
-            "available_timedate": "2025-05-25 16:35:47",
+            "title": "Ja",
+            "description": "Yes",
+            "question": "Yes, I understand.",
+            "answer": "Ja, I understand.",
+            "available_timedate": "2025-06-04 14:10:26",
             "visit_count": 0
         },
         {
             "type": "Grammar",
-            "title": "Nicht viel",
-            "description": "Not much",
-            "question": "I don't have much time.",
-            "answer": "Ich habe nicht viel Zeit.",
-            "available_timedate": "2025-05-25 16:35:55",
-            "visit_count": 0
-        },
-        {
-            "type": "Grammar",
-            "title": "Was darf es sein",
-            "description": "How to offer service/help in German.",
-            "question": "Hello, what can I get for you?",
-            "answer": "Hallo, was darf es sein?",
-            "available_timedate": "2025-05-25 16:36:02",
-            "visit_count": 0
-        },
-        {
-            "type": "Grammar",
-            "title": "Modal Verb Conjugation (Könnten Sie)",
-            "description": "Formal 'Can you' - polite request/question.",
-            "question": "Can you help me with this?",
-            "answer": "Könnten Sie mir dabei helfen?",
-            "available_timedate": "2025-05-25 17:22:06",
+            "title": "Verb Inflection (bin)",
+            "description": "am",
+            "question": "I am happy.",
+            "answer": "Ich bin glücklich.",
+            "available_timedate": "2025-06-04 14:10:34",
             "visit_count": 0
         },
         {
             "type": "Vocabulary",
-            "title": "dir",
-            "description": "you",
-            "question": "I am talking to you.",
-            "answer": "Ich spreche mit dir.",
-            "available_timedate": "2025-05-25 17:23:31",
+            "title": "denken",
+            "description": "To think.",
+            "question": "I think about my future.",
+            "answer": "Ich denke über meine Zukunft nach.",
+            "available_timedate": "2025-06-04 14:14:45",
             "visit_count": 0
         },
         {
             "type": "Vocabulary",
-            "title": "dich",
-            "description": "you (accusative, informal)",
-            "question": "I see you.",
-            "answer": "Ich sehe dich.",
-            "available_timedate": "2025-05-25 17:23:34",
-            "visit_count": 0
-        },
-        {
-            "type": "Grammar",
-            "title": "Grammar (Wie geht's)",
-            "description": "How are you?",
-            "question": "HOW ARE you doing today?",
-            "answer": "Wie geht's dir heute?",
-            "available_timedate": "2025-05-25 17:23:41",
+            "title": "Frau",
+            "description": "Woman or Mrs.",
+            "question": "The women are meeting for coffee.",
+            "answer": "Die Frau treffen sich auf einen Kaffee.",
+            "available_timedate": "2025-06-04 14:15:05",
             "visit_count": 0
         },
         {
             "type": "Vocabulary",
-            "title": "mein Bruder",
-            "description": "brother",
-            "question": "My brother is coming to visit.",
-            "answer": "Mein Bruder kommt zu Besuch.",
-            "available_timedate": "2025-05-25 18:18:19",
-            "visit_count": 0
-        },
-        {
-            "type": "Grammar",
-            "title": "Hallo",
-            "description": "Hello",
-            "question": "Hey, how are you?",
-            "answer": "Hallo, how are you?",
-            "available_timedate": "2025-05-25 21:18:12",
+            "title": "Tochter",
+            "description": "Daughter",
+            "question": "My daughter loves to play.",
+            "answer": "Meine Tochter liebt es zu spielen.",
+            "available_timedate": "2025-06-04 14:15:20",
             "visit_count": 0
         },
         {
             "type": "Vocabulary",
-            "title": "bereit",
-            "description": "ready",
-            "question": "I am ready to go.",
-            "answer": "Ich bin bereit zu gehen.",
-            "available_timedate": "2025-05-25 21:19:01",
+            "title": "bestellen",
+            "description": "To order.",
+            "question": "I want to order a pizza.",
+            "answer": "Ich möchte eine Pizza bestellen.",
+            "available_timedate": "2025-06-04 14:15:35",
             "visit_count": 0
         },
         {
             "type": "Vocabulary",
-            "title": "Hackbraten",
-            "description": "Meat loaf",
-            "question": "I made a delicious meat loaf for dinner.",
-            "answer": "I made a delicious Hackbraten for dinner.",
-            "available_timedate": "2025-05-25 21:19:24",
+            "title": "Freundin",
+            "description": "Girlfriend",
+            "question": "I love my girlfriend.",
+            "answer": "Ich liebe meine Freundin.",
+            "available_timedate": "2025-06-04 14:16:09",
             "visit_count": 0
         },
         {
             "type": "Grammar",
-            "title": "Verb Conjugation (bin)",
-            "description": "To be (first person singular present tense)",
-            "question": "I have a car.",
-            "answer": "I am a car.",
-            "available_timedate": "2025-05-25 21:20:21",
+            "title": "zu",
+            "description": "German equivalent of 'to' for infinitives.",
+            "question": "I want to go to the store.",
+            "answer": "Ich möchte ins Geschäft gehen zu gehen.",
+            "available_timedate": "2025-06-04 14:16:12",
             "visit_count": 0
         },
         {
             "type": "Grammar",
-            "title": "Verb Conjugation (möchte kaufen)",
-            "description": "Expressing a desire or wish to buy.",
-            "question": "I want to buy a car.",
-            "answer": "Ich möchte ein Auto kaufen.",
-            "available_timedate": "2025-05-25 21:42:42",
+            "title": "über",
+            "description": "German for 'about' or 'over' (preposition).",
+            "question": "We are talking about the movie.",
+            "answer": "Wir sprechen über den Film.",
+            "available_timedate": "2025-06-04 14:16:15",
+            "visit_count": 0
+        },
+        {
+            "type": "Vocabulary",
+            "title": "sprechen",
+            "description": "To speak, talk.",
+            "question": "I want to talk to you.",
+            "answer": "Ich möchte mit dir sprechen.",
+            "available_timedate": "2025-06-04 14:16:17",
+            "visit_count": 0
+        },
+        {
+            "type": "Vocabulary",
+            "title": "werde",
+            "description": "Expressing future actions or intentions.",
+            "question": "I want to go to the store tomorrow.",
+            "answer": "I will go to the store tomorrow.",
+            "available_timedate": "2025-06-04 14:16:25",
+            "visit_count": 0
+        },
+        {
+            "type": "Vocabulary",
+            "title": "Kamerad",
+            "description": "Brother",
+            "question": "He is my brother.",
+            "answer": "He is my Kamerad.",
+            "available_timedate": "2025-06-04 14:45:48",
+            "visit_count": 0
+        },
+        {
+            "type": "Grammar",
+            "title": "call -> nenn",
+            "description": "nenn - to name or call (someone/something)",
+            "question": "I will call you later.",
+            "answer": "Ich werde dich später nenn.",
+            "available_timedate": "2025-06-04 14:46:01",
+            "visit_count": 0
+        },
+        {
+            "type": "Grammar",
+            "title": "Was gibt",
+            "description": "What's",
+            "question": "What's the matter?",
+            "answer": "Was gibt es?",
+            "available_timedate": "2025-06-06 22:20:21",
+            "visit_count": 0
+        },
+        {
+            "type": "Vocabulary",
+            "title": "los",
+            "description": "Up",
+            "question": "Time's up!",
+            "answer": "Die Zeit ist los!",
+            "available_timedate": "2025-06-06 22:20:26",
             "visit_count": 0
         }
     ]
