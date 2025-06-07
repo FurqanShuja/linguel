@@ -605,6 +605,51 @@
                 "Was": "what",
                 "gibt": "gives/there is"
             }
+        },
+        {
+            "message": "hello brother i wanna fuck your Gattin",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {
+                "Gattin": "wife"
+            }
+        },
+        {
+            "message": "I'm Es tut mir leid, I don't understand. Can I offer zu you eine menu?\n",
+            "source": "ai",
+            "grammar": {
+                "Es tut mir leid": "It makes me sorry",
+                "zu you eine": "word order incorrect",
+                "eine menu": "incorrect article gender"
+            },
+            "vocabulary": {
+                "Es tut mir leid": "I am sorry",
+                "zu": "to",
+                "eine": "a",
+                "Menu": "menu"
+            }
+        },
+        {
+            "message": "i don't verstehen auch nicht",
+            "source": "user",
+            "grammar": {
+                "verstehen": "to understand (infinitive)",
+                "auch nicht": "also not"
+            },
+            "vocabulary": {
+                "verstehen": "understand",
+                "auch": "also",
+                "nicht": "not"
+            }
+        },
+        {
+            "message": "I'm sorry, I don't verstehen. Could you bitte repeat that in English?\n",
+            "source": "ai",
+            "grammar": {},
+            "vocabulary": {
+                "verstehen": "understand",
+                "bitte": "please"
+            }
         }
     ]
 }

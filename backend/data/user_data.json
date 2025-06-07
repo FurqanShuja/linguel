@@ -260,6 +260,42 @@
             "answer": "Die Zeit ist los!",
             "available_timedate": "2025-06-06 22:20:26",
             "visit_count": 0
+        },
+        {
+            "type": "Grammar",
+            "title": "Modal Verb (Ich will)",
+            "description": "I want to",
+            "question": "I wanna go to the store.",
+            "answer": "Ich will zum Laden gehen.",
+            "available_timedate": "2025-06-07 13:22:35",
+            "visit_count": 0
+        },
+        {
+            "type": "Vocabulary",
+            "title": "Gattin",
+            "description": "Wife",
+            "question": "My wife is a doctor.",
+            "answer": "Meine Gattin ist Ärztin.",
+            "available_timedate": "2025-06-07 13:22:39",
+            "visit_count": 0
+        },
+        {
+            "type": "Vocabulary",
+            "title": "verstehen",
+            "description": "understand",
+            "question": "I understand the question.",
+            "answer": "Ich verstehe die Frage.",
+            "available_timedate": "2025-06-07 13:23:02",
+            "visit_count": 0
+        },
+        {
+            "type": "Vocabulary",
+            "title": "auch nicht",
+            "description": "Not either, neither",
+            "question": "I don't like apples either.",
+            "answer": "Ich mag Äpfel auch nicht.",
+            "available_timedate": "2025-06-07 13:23:06",
+            "visit_count": 0
         }
     ]
 }

@@ -17,7 +17,7 @@ html, body {
     height: calc(100vh - 80px); /* Adjust for header height */
     display: flex;
     flex-direction: column;
-    padding: 0 15%;  /* Add padding on sides to center content */
+    margin: 0 auto; /* Replaces padding for centering the block */
   }
   
   .chat-messages {
