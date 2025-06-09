@@ -650,6 +650,68 @@
                 "verstehen": "understand",
                 "bitte": "please"
             }
+        },
+        {
+            "message": "hallo wie geht es",
+            "source": "user",
+            "grammar": {
+                "wie geht es": "how are you?"
+            },
+            "vocabulary": {
+                "hallo": "hello",
+                "geht": "goes"
+            }
+        },
+        {
+            "message": "Hallo! Mir geht es gut, danke. Was darf ich Ihnen bringen?\n",
+            "source": "ai",
+            "grammar": {
+                "Mir geht es gut": "It goes well (me)",
+                "Was darf ich": "What may I"
+            },
+            "vocabulary": {
+                "Hallo": "Hello",
+                "danke": "thanks",
+                "Ihnen": "you (formal)",
+                "bringen": "to bring",
+                "gut": "good"
+            }
+        },
+        {
+            "message": "I want to build a Rechner",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {
+                "Rechner": "computer"
+            }
+        },
+        {
+            "message": "Okay, Es tut mir leid, ich auch nicht verstehen \"Rechner.\" Could you tell me was that ist es?\n",
+            "source": "ai",
+            "grammar": {
+                "Es tut mir leid": "It makes me sorry",
+                "ich auch nicht verstehen": "I also not understand",
+                "was ist es": "what is it"
+            },
+            "vocabulary": {
+                "Rechner": "computer"
+            }
+        },
+        {
+            "message": "I",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "I'm ready zu take your order whenever you are.\n",
+            "source": "ai",
+            "grammar": {
+                "zu take": "Infinitive marker ('to')"
+            },
+            "vocabulary": {
+                "zu": "to"
+            }
         }
     ]
 }

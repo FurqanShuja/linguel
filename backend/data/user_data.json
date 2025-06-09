@@ -6,8 +6,8 @@
             "description": "Brother",
             "question": "He is my brother.",
             "answer": "Er ist mein Bruder.",
-            "available_timedate": "2025-06-05 12:28:47",
-            "visit_count": 6
+            "available_timedate": "2025-06-08 10:39:08",
+            "visit_count": 7
         },
         {
             "type": "Grammar",
@@ -15,8 +15,8 @@
             "description": "German for 'I would like'.",
             "question": "I want a coffee.",
             "answer": "Ich möchte einen Kaffee.",
-            "available_timedate": "2025-06-05 23:37:36",
-            "visit_count": 2
+            "available_timedate": "2025-06-10 00:59:08",
+            "visit_count": 3
         },
         {
             "type": "Vocabulary",
@@ -295,6 +295,24 @@
             "question": "I don't like apples either.",
             "answer": "Ich mag Äpfel auch nicht.",
             "available_timedate": "2025-06-07 13:23:06",
+            "visit_count": 0
+        },
+        {
+            "type": "Vocabulary",
+            "title": "geht es",
+            "description": "How are you?",
+            "question": "Wie gehts dir?",
+            "answer": "Wie geht es dir?",
+            "available_timedate": "2025-06-07 20:17:30",
+            "visit_count": 0
+        },
+        {
+            "type": "Vocabulary",
+            "title": "Rechner",
+            "description": "Computer",
+            "question": "I use my computer every day.",
+            "answer": "Ich benutze meinen Rechner jeden Tag.",
+            "available_timedate": "2025-06-07 22:58:53",
             "visit_count": 0
         }
     ]
