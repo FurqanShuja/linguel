@@ -3,3 +3,8 @@ uvicorn
 google-generativeai
 python-dotenv
 python-dateutil
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+requests
+PyJWT

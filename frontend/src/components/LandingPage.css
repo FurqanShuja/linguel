@@ -39,7 +39,7 @@ html, body {
   align-items: center;
 }
 
-/* ───────────────  Decorative Backgrounds  ───────────── */
+/* ───────────  Decorative Backgrounds  ───────────── */
 .grid-background,
 .grid-pattern,
 .black-overlay,
@@ -114,6 +114,7 @@ html, body {
   padding: 1rem 2rem;
   font-size: 1.25rem;
   border: 2px solid #fff;
+  border-radius: 8px;
   background: transparent;
   color: #fff;
   display:flex;
@@ -124,6 +125,39 @@ html, body {
 .login-button:hover { background:#fff; color:#000; }
 .signup-button      { background:#fff; color:#000; }
 .signup-button:hover{ background:transparent; color:#fff; }
+
+/* Google login button - integrated into landing page */
+.google-login-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 280px;
+  padding: 16px 32px;
+  font-size: 18px;
+  font-weight: 500;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.google-login-button:hover {
+  background: #fff;
+  color: #000;
+}
+
+.google-login-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.google-icon {
+  flex-shrink: 0;
+}
 
 /* ───────────────────  Stats Section  ─────────────────── */
 .stats-section   { width:100%; padding:2rem 1rem; display:flex; justify-content:center; }
@@ -305,6 +339,13 @@ html, body {
 
   /* footer stays horizontal but centers if space is tight */
   .footer-content { justify-content:center; gap:1.5rem; }
+  
+  /* Responsive Google login button */
+  .google-login-button {
+    min-width: 260px;
+    padding: 14px 24px;
+    font-size: 16px;
+  }
 }
 
 /* Mobile & below */

@@ -1,6 +1,16 @@
-from fastapi import FastAPI, Body
+from fastapi import FastAPI, Body, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
 from typing import List, Dict, Any
+import os
+from dotenv import load_dotenv
+import requests
+import jwt
+from datetime import datetime, timedelta
+
+# Load environment variables
+load_dotenv()
+
 from schemas import (
     LearningChatRequest,
     TriggerReplacementRequest,
@@ -9,7 +19,7 @@ from schemas import (
 )
 
 # Import your business logic functions
-from data import get_chat_history, add_learned_data, get_authentication
+from data import get_chat_history, add_learned_data
 from features import get_response, new_card, update_card, trigger_replacement, create_card_for_replacement, learning_chat_with_analysis
 
 app = FastAPI()
@@ -23,16 +33,100 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/authenticate")
-def endpoint_authenticate(email: str):
+# Google OAuth configuration
+GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
+GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
+GOOGLE_REDIRECT_URI = os.getenv("GOOGLE_REDIRECT_URI")
+
+@app.get("/auth/google")
+def google_auth():
     """
-    Endpoint for retrieving authentication details for a given email.
-    Returns the password for the provided email.
+    Initiates Google OAuth flow by redirecting to Google's authorization server.
+    """
+    google_auth_url = (
+        f"https://accounts.google.com/o/oauth2/auth?"
+        f"client_id={GOOGLE_CLIENT_ID}&"
+        f"redirect_uri={GOOGLE_REDIRECT_URI}&"
+        f"scope=openid email profile&"
+        f"response_type=code&"
+        f"access_type=offline"
+    )
+    return {"auth_url": google_auth_url}
+
+@app.get("/auth/callback")
+def google_callback(code: str):
+    """
+    Handles the callback from Google OAuth and exchanges code for tokens.
     """
     try:
-        password = get_authentication(email)
-        return {"email": email, "password": password}
-    except ValueError as e:
+        # Exchange authorization code for access token
+        token_url = "https://oauth2.googleapis.com/token"
+        token_data = {
+            "client_id": GOOGLE_CLIENT_ID,
+            "client_secret": GOOGLE_CLIENT_SECRET,
+            "code": code,
+            "grant_type": "authorization_code",
+            "redirect_uri": GOOGLE_REDIRECT_URI,
+        }
+        
+        token_response = requests.post(token_url, data=token_data)
+        token_response.raise_for_status()
+        tokens = token_response.json()
+        
+        # Get user info from Google
+        access_token = tokens["access_token"]
+        user_info_url = f"https://www.googleapis.com/oauth2/v2/userinfo?access_token={access_token}"
+        user_response = requests.get(user_info_url)
+        user_response.raise_for_status()
+        user_data = user_response.json()
+        
+        # Extract email from user data
+        email = user_data.get("email")
+        if not email:
+            raise HTTPException(status_code=400, detail="Email not found in Google response")
+        
+        # Create a simple JWT token for session management (optional)
+        jwt_token = jwt.encode(
+            {"email": email, "exp": datetime.utcnow() + timedelta(hours=24)},
+            "your-secret-key",  # Use a proper secret key in production
+            algorithm="HS256"
+        )
+        
+        # Redirect back to root path with success parameters
+        return RedirectResponse(url=f"http://localhost:5173/?token={jwt_token}&email={email}")
+        
+    except Exception as e:
+        return RedirectResponse(url=f"http://localhost:5173/?error={str(e)}")
+
+@app.get("/authenticate")
+def endpoint_authenticate(email: str = None, token: str = None):
+    """
+    Endpoint for validating authentication.
+    Now supports both legacy email lookup and JWT token validation.
+    """
+    try:
+        if token:
+            # Validate JWT token
+            try:
+                payload = jwt.decode(token, "your-secret-key", algorithms=["HS256"])
+                email = payload.get("email")
+                if not email:
+                    return {"error": "Invalid token"}
+                return {"email": email, "authenticated": True}
+            except jwt.ExpiredSignatureError:
+                return {"error": "Token expired"}
+            except jwt.InvalidTokenError:
+                return {"error": "Invalid token"}
+        
+        elif email:
+            # For backward compatibility - you can remove this if you want to force OAuth
+            # This would be the legacy authentication method
+            return {"error": "Please use Google OAuth authentication"}
+        
+        else:
+            return {"error": "No authentication method provided"}
+            
+    except Exception as e:
         return {"error": str(e)}
 
 @app.post("/learning_chat_with_analysis")

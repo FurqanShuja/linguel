@@ -315,5 +315,16 @@
             "available_timedate": "2025-06-07 22:58:53",
             "visit_count": 0
         }
+    ],
+    "fnshuja00@gmail.com": [
+        {
+            "type": "Vocabulary",
+            "title": "Bitte",
+            "description": "Please",
+            "question": "Can you please help me?",
+            "answer": "Kannst du mir bitte helfen?",
+            "available_timedate": "2025-06-20 14:00:35",
+            "visit_count": 0
+        }
     ]
 }

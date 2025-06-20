@@ -713,5 +713,34 @@
                 "zu": "to"
             }
         }
+    ],
+    "fnshuja00@gmail.com": [
+        {
+            "message": "hey",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "Hi there! Ready to order some drinks or something to eat?\n",
+            "source": "ai",
+            "grammar": {},
+            "vocabulary": {}
+        },
+        {
+            "message": "yes bitte",
+            "source": "user",
+            "grammar": {},
+            "vocabulary": {
+                "bitte": "please",
+                "yes": "yes"
+            }
+        },
+        {
+            "message": "Alright! What can I get for you?\n",
+            "source": "ai",
+            "grammar": {},
+            "vocabulary": {}
+        }
     ]
 }

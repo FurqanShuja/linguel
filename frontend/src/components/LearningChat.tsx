@@ -60,15 +60,9 @@ export const LearningChat = () => {
         };
       case 2:
         return {
-          title: 'Practice v1',
+          title: 'Practice',
           subtitle: 'Practice what you have learned with flashcard',
           disabled: false
-        };
-      case 3:
-        return {
-          title: 'Practice v2',
-          subtitle: 'Practice what you have learned with chat',
-          disabled: true
         };
       default:
         return {
@@ -149,7 +143,7 @@ export const LearningChat = () => {
                   console.log('[DEBUG] Dropdown menu clicked');
                 }}
               >
-                {[1, 2, 3].map((option) => (
+                {[1, 2].map((option) => (
                   <div
                     key={option}
                     className={`menu-option ${selectedOption === option ? 'selected' : ''} ${

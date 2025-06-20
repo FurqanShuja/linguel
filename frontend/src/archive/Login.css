@@ -21,23 +21,93 @@ html, body {
   right: 0;
   bottom: 0;
   overflow: hidden;
-  /* Replace the gradient with the background image */
-  background-image: url('../assets/images/background_image.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
-/* Add a darkening overlay if needed */
-.login-container::before {
-  content: "";
+/* Grid background styles (same as LandingPage) */
+.grid-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.black-overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(15, 23, 42, 0.7); /* Dark blue overlay with 70% opacity */
-  z-index: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.grid-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(59, 130, 246, 0.1) 0%,
+    rgba(15, 23, 42, 0.8) 70%
+  );
+  z-index: 3;
+}
+
+/* Google login button styled like landing page buttons */
+.google-login-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 280px;
+  padding: 16px 32px;
+  font-size: 18px;
+  font-weight: 500;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  z-index: 4;
+}
+
+.google-login-button:hover {
+  background: #fff;
+  color: #000;
+}
+
+.google-login-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.google-icon {
+  flex-shrink: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .google-login-button {
+    min-width: 260px;
+    padding: 14px 24px;
+    font-size: 16px;
+  }
 }
 
 .login-form {
@@ -53,75 +123,30 @@ html, body {
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
-  z-index: 1;
+  z-index: 4;
   overflow: hidden;
 }
 
-.login-form h1 {
+.login-form h2 {
   color: white;
   text-align: center;
   font-weight: 500;
-  font-size: 1.6rem; /* Slightly smaller font */
+  font-size: 1.6rem;
   margin-bottom: 0.5rem;
   letter-spacing: -0.5px;
   font-family: 'Inter', sans-serif;
 }
 
-.input-group {
-  position: relative;
-  width: 100%;
-}
-
-.input-group input {
-  width: 100%;
-  padding: 10px 12px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-  color: white;
+.login-form p {
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
   font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-  box-sizing: border-box;
-  -webkit-autofill: none;
 }
 
-/* Override browser autofill styles */
-.input-group input:-webkit-autofill,
-.input-group input:-webkit-autofill:hover,
-.input-group input:-webkit-autofill:focus,
-.input-group input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.04) inset !important;
-  -webkit-text-fill-color: white !important;
-  transition: background-color 5000s ease-in-out 0s;
-}
-
-.input-group input::placeholder {
-  color: rgba(255, 255, 255, 0.4);
-}
-
-/* Style for when input is focused */
-.input-group input:focus {
-  outline: none;
-  border-color: rgba(255, 255, 255, 0.6); /* Brighter border */
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2); /* Subtle glow */
-  background: transparent; /* Keep background transparent */
-}
-
-/* Style for when input has value */
-.input-group input:not(:placeholder-shown) {
-  border-color: rgba(255, 255, 255, 0.4); /* Brighter border when text is entered */
-  background: transparent; /* Keep background transparent */
-}
-
-/* Style for hover state */
-.input-group input:hover:not(:focus) {
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-button {
+/* Make button styles specific to login form only */
+.login-form .google-login-btn {
   width: 100%;
   box-sizing: border-box;
   background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
@@ -138,26 +163,21 @@ button {
   letter-spacing: 0.2px;
 }
 
-button:hover {
+.login-form .google-login-btn:hover {
   transform: translateY(-1px);
   box-shadow: 0 6px 15px rgba(37, 99, 235, 0.4);
   background: linear-gradient(90deg, #4f8cf7 0%, #2e6ff1 100%);
 }
 
-button:active {
+.login-form .google-login-btn:active {
   transform: translateY(1px);
   box-shadow: 0 3px 8px rgba(37, 99, 235, 0.3);
 }
 
-/* Add company logo or app branding if you have one */
-.brand {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
-}
-
-.brand img {
-  height: 40px;
+.login-form .google-login-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
 }
 
 /* Responsive adjustments */
@@ -168,12 +188,7 @@ button:active {
     width: 90%;
   }
   
-  .input-group input {
-    padding: 12px 14px;
-    font-size: 14px;
-  }
-  
-  button {
+  .login-form .google-login-btn {
     padding: 12px;
     font-size: 14px;
   }
@@ -235,4 +250,4 @@ button:active {
 .notification.show {
   animation: fadeInUp 0.3s forwards;
   bottom: 25px;
-} 
+}
